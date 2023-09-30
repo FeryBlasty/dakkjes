@@ -152,6 +152,24 @@ const enviarMenu = async (message, usuarioInfo) => {
     awaitingResponse = true;
 };
 //=====================SESSÃO DE POLL&FUNÇÕES PRINCIPAIS By ClassicX-O-BRABO======================//
+if (
+  (comandokkj !== 'menu' && comandokkj !== '🔧suporte deste bot🔧' && comandokkj !== '🚀afiliados🚀' && comandokkj !== 'pix' && comandokkj !== '⚙️desenvolvedor do bot⚙️' && comandokkj !== '💳pacotes mix' && comandokkj !== 'bin' && comandokkj !== '💳comprar info💳' && comandokkj !== '💳cartões por nível' && comandokkj !== '' && comandokkj !== 'paguei o pix' && comandokkj !== '🤑adicionar saldo🤑' && comandokkj !== '💳cartões por bin' && comandokkj !== '💳cartões por banco' && comandokkj !== 'adicionar pix00' && comandokkj !== 'comprar info' && comandokkj !== 'falar com o suporte' && comandokkj !== 'sobre o bot' && comandokkj !== 'sticker' && comandokkj !== 'testezz' && !comandoprinc.startsWith('💳R$') && !comandoprinc.startsWith('registrar') && !comandoprinc.startsWith('pix') && !comandoprinc.startsWith('R$')) ) {
+    //console.log("Menu Acionado!")
+    const usuario = message.from;
+    const logado = usuario.split('@s.whatsapp.net')[0];
+
+    // Verifica se o usuário existe no banco de dados
+    const { usuarioEncontrado, usuarioInfo } = await verificarUsuario(logado);
+
+    if (usuarioEncontrado) {
+        await enviarMenu(message, usuarioInfo);
+    } else {
+        // Se o usuário não existe, envia mensagem de erro
+        await botBaileys.sendText(message.from, '*❌VOCÊ NÃO ESTÁ CADASTRADO!❌*\n\n_PARA UTILIZAR AS FUNÇÕES DESTE BOT O CADASTRO É OBRIGATÓRIO_\n\nREGISTRE-SE ENVIANDO A PALAVRA *registrar*');
+    }
+  return;
+}
+
 if (comandokkj === '🔧suporte deste bot🔧') {
   await botBaileys.sendText(message.from, '*🤵SUPORTE WANTED STORE🤵*\n\nPARA TROCAS,SUPORTE E DÚVIDAS COM RELAÇÃO AO MATERIAL DESTE BOT E ETC.\n\nwa.me/5511917086876\n\nDIGITE *menu* A QUALQUER MOMENTO PARA VOLTAR AO MENU!');
   return;
