@@ -152,20 +152,20 @@ const enviarMenu = async (message, usuarioInfo) => {
     awaitingResponse = true;
 };
 //=====================SESSÃO DE POLL&FUNÇÕES PRINCIPAIS By ClassicX-O-BRABO======================//
-if (message.body === '🔧SUPORTE DESTE BOT🔧') {
+if (comandokkj === '🔧suporte deste bot🔧') {
   await botBaileys.sendText(message.from, '*🤵SUPORTE WANTED STORE🤵*\n\nPARA TROCAS,SUPORTE E DÚVIDAS COM RELAÇÃO AO MATERIAL DESTE BOT E ETC.\n\nwa.me/5511917086876\n\nDIGITE *menu* A QUALQUER MOMENTO PARA VOLTAR AO MENU!');
   return;
 }
-if (message.body === '🚀AFILIADOS🚀') {
+if (comandokkj === '🚀afiliados🚀') {
   await botBaileys.sendText(message.from, '*🤵SISTEMA DE AFILIADOS WANTED STORE🤵*\n\n_SEMPRE QUE UM USUÁRIO SE REGISTRAR NESTE BOT COM O SEU CODIGO DE CONVITE,VOCÊ IRÁ RECEBER 10% DE TODO VALOR QUE O ÚSUARIO CONVIDADO ADICIONAR NO BOT,SEM LIMITES DE QUANTO PODE GANHAR,QUANTO MAIS PESSOAS,MAIS VOCÊ GANHA!!_\n\n_PARA SEU AMIGO SE REGISTRAR COM O SEU CÓDIGO DE CONVITE,ELE DEVE DIGITAR O COMANDO *registrar* SEGUIDO DO SEU CÓDIGO DE CONVITE_\n\n*Exemplo*:\n*registrar 11145587*\n\nDIGITE *menu* A QUALQUER MOMENTO PARA VOLTAR AO MENU!');
   return;
 }
-if (message.body === '⚙️DESENVOLVEDOR DO BOT⚙️') {
+if (comandokkj === '⚙️desenvolvedor do bot⚙️') {
   await botBaileys.sendText(message.from, '*⚙️DESENVOLVEDOR DESTE BOT⚙️*\n\n_CASO QUEIRA COMPRAR OU ALUGAR LOJAS COMO ESSA,ADQUIRIR A CRIAÇÃO DE ALGUM PROJETO OU REPORTAS BUGS,CHAME O DESENVOLVEDOR DESTE BOT_\n\n_*ATENÇÃO: SÓ CHAME O DESENVOLVEDOR SE TIVER ALGUMA DÚVIDA COM RELAÇÃO AO BOT EM SI,O DESENVOLVEDOR NÃO É RESPONSÁVEL PELO MATERIAL VENDIDO,PARA ISSO CHAME O SUPORTE DESTE BOT!*_\n\nClassicX-O-BRABO(Desenvolvedor):\nwa.me/5521976401218\n\nDIGITE *menu* A QUALQUER MOMENTO PARA VOLTAR AO MENU!');
   return;
 }
 
-if (message.body === '💳PACOTES MIX') {
+if (comandokkj === '💳pacotes mix') {
   (async () => {
     const usuario = message.from;
     const logado = usuario.split('@s.whatsapp.net')[0];
@@ -960,7 +960,7 @@ if (comandokkj === 'menu') {
         await botBaileys.sendText(message.from, '*❌VOCÊ NÃO ESTÁ CADASTRADO!❌*\n\n_PARA UTILIZAR AS FUNÇÕES DESTE BOT O CADASTRO É OBRIGATÓRIO_\n\nREGISTRE-SE ENVIANDO A PALAVRA *registrar*');
     }
 }
-    if (message.body === '❌VOLTAR AO MENU❌') {
+    if (comandokkj === '❌voltar ao menu❌') {
         const usuario = message.from;
         const logado = usuario.split('@s.whatsapp.net')[0];
     
@@ -974,13 +974,13 @@ if (comandokkj === 'menu') {
             await botBaileys.sendText(message.from, '*❌VOCÊ NÃO ESTÁ CADASTRADO!❌*\n\n_PARA UTILIZAR AS FUNÇÕES DESTE BOT O CADASTRO É OBRIGATÓRIO_\n\nREGISTRE-SE ENVIANDO A PALAVRA *registrar*');
         }
     }   
-    if (message.body === '🤑ADICIONAR SALDO🤑') {
+    if (comandokkj === '🤑adicionar saldo🤑') {
         //console.log(`Indo ao menu de Adicionar Saldo...\nUsuário: ${message.from}\n`);
         const menuText = `*💰COMO ADICIONAR SALDO VIA PIX💰*\n\nUtilize "pix" Seguido do Valor Desejado no Formato 0.00\n\nExemplo:\n\n*pix 15*\n\n*pix 22.70* `;
         await botBaileys.sendText(message.from, menuText);    
         awaitingResponse = true;
     }
-    if (message.body === '💳COMPRAR INFO💳') {
+    if (comandokkj === '💳comprar info💳') {
         //console.log(`Indo ao menu de Escolher Info...\nUsuário: ${message.from}\n`);
         const menuText = `💳MENU DE DE CARTÕES💳\n\nTODAS AS INFOS ACOMPANHAM NOME E CPF!\n\nESCOLHA ABAIXO O TIPO DESEJADO`;
     
@@ -991,7 +991,7 @@ if (comandokkj === 'menu') {
     
         awaitingResponse = true;
     }
-    if (message.body === '💳CARTÕES POR BIN') {
+    if (comandokkj === '💳cartões por bin') {
         (async () => {
             const usuario = message.from;
             const logado = usuario.split('@s.whatsapp.net')[0];
@@ -1081,7 +1081,7 @@ if (comandokkj === 'menu') {
           })();
           awaitingResponse = true;
         }
-    if (message.body === '💳CARTÕES POR BANCO') {
+    if (comandokkj === '💳cartões por banco') {
         (async () => {
             const usuario = message.from;
             const logado = usuario.split('@s.whatsapp.net')[0];
@@ -1170,7 +1170,7 @@ if (comandokkj === 'menu') {
           })();
           awaitingResponse = true;
         }
-    if (message.body === '💳CARTÕES POR NÍVEL') {
+    if (comandokkj === '💳cartões por nível') {
       (async () => {
         const usuario = message.from;
         const logado = usuario.split('@s.whatsapp.net')[0];
