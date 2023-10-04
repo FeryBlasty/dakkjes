@@ -476,42 +476,46 @@ if (comandoprinc.startsWith('R$')) {
       
         // Feche o navegador após o uso
         await browser.close();
-      
+        //await botBaileys.sendText(message.from, itemselecionado);
+        //await botBaileys.sendText(message.from, email_do_usuario);
+        //await botBaileys.sendText(message.from, compraResponse);
         // Use cheerio para analisar a resposta HTML
         const $ = cheerio.load(compraResponse);
-        if (compraResponse.includes('Saldo insuficiente para realizar a compra.')) {
+        if (compraResponse.includes('Saldo insuficiente para realizar a Compra do Pacote.')) {
           await botBaileys.sendText(message.from, '*❌SALDO INSUFICIENTE PARA PROSSEGUIR COM A COMPRA DESTE PACOTE!❌*');
           return;
         }
-        if (compraResponse.includes('Nenhum Login Disponível')) {
-          await botBaileys.sendText(message.from, '*❌ESTE PACOTE MIX ESTÁ INDISPONÍVEL EM ESTOQUE❌*\n\nTente Novamente Mais Tarde Ou Escolha Outro Produto <3');
+        if (compraResponse.includes('Quantidade de Infos em Estoque Insuficiente Para Prosseguir com A Compra, Escolha um Pacote menor Ou Compre unitárias')) {
+          await botBaileys.sendText(message.from, '*❌INFOS INSUFICIENTES EM ESTOQUE PRA QUANTIDADE ESCOLHIDA!❌*\n\nTente Novamente Mais Tarde Ou Escolha Outro Produto <3');
           return;
         }
-      
-        // Extrair os valores usando seletores CSS
-        //console.log(compraResponse)
-        const compraEfetuada = $('form').text().trim();
-        const conteudo = compraEfetuada.split('Compra Efetuada com Sucesso!')[1].trim();
+        
+// Use expressões regulares para separar as informações em grupos
+const regex = /Numero Da Info: (\d+)<br>Numero: (.*?)<br>Bandeira: (.*?)<br>Tipo: (.*?)<br>Nível: (.*?)<br>Banco: (.*?)<br>País: (.*?)<br><br>/gs;
 
-// Use expressões regulares para separar o conteúdo
-const partes = conteudo.match(/([\s\S]*?)(?:TIPO: (.*?))?(?:SUPORTE: (.*?))?(?:PREÇO: (.*?))?(?:DATA DA COMPRA: (.*?))?(?:VENDIDO PARA: (.*?))?(?:Usuario: (.*?))?(?:Saldo Restante: (.*?))?(?:VOLTAR AO MENU|$)/);
+let match: RegExpExecArray | null;
+let mensagemAoUsuario = '';
+while ((match = regex.exec(compraResponse)) !== null) {
+  const numeroInfo = match[1];
+  const numero = match[2];
+  const bandeira = match[3];
+  const tipo = match[4];
+  const nivel = match[5];
+  const banco = match[6];
+  const pais = match[7];
 
-// Partes separadas
-const nome = partes[1].trim();
-const tipo = partes[2] ? partes[2].trim() : '';
-const suporte = partes[3] ? partes[3].trim() : '';
-const preco = partes[4] ? partes[4].trim() : '';
-const dataDaCompra = partes[5] ? partes[5].trim() : '';
-const vendidoPara = partes[6] ? partes[6].trim() : '';
-const usuario = partes[7] ? partes[7].trim() : '';
-const saldoRestante = partes[8] ? partes[8].trim() : '';
+  // Concatenate all the information into a single message to send to the user
+  mensagemAoUsuario += `*Numero Da Info*: ${numeroInfo}\n*Numero*: ${numero}\n*Bandeira*: ${bandeira}\n*Tipo*: ${tipo}\n*Nível*: ${nivel}\n*Banco*: ${banco}\n*País*: ${pais}\n\n`;
+}
 
-
-        // Enviar uma mensagem ao usuário com os valores extraídos
-        const mensagemAoUsuario = `*Conteúdo*:\n${nome}\n*Tipo*: ${tipo}\n*Suporte*: ${suporte}\n*Preço*: ${preco}\n*Data da Compra*: ${dataDaCompra}\n\n*Usuário*: ${usuario}\n*Saldo Restante*: ${saldoRestante}`;
-      
-        await botBaileys.sendMedia(message.from, 'https://i.ibb.co/X2xgBW7/compra.jpg', '');
-        await botBaileys.sendText(message.from, mensagemAoUsuario);
+if (mensagemAoUsuario === '') {
+  await botBaileys.sendText(message.from, 'Não foi possível encontrar informações de compra.');
+} else {
+  const variaveldefinitiva = `*✅COMPRA EFETUADA COM SUCESSO✅*\n\n` + mensagemAoUsuario + `DIGITE *menu* A QUALQUER MOMENTO PARA VOLTAR AO MENU!`;
+  await botBaileys.sendMedia(message.from, 'https://i.ibb.co/X2xgBW7/compra.jpg', '');
+  await botBaileys.sendText(message.from, variaveldefinitiva); 
+  //await botBaileys.sendText(message.from, mensagemAoUsuario);
+}
       } else {
         await botBaileys.sendText(message.from, 'Erro!');
         //console.log('Erro ao efetuar o login');
