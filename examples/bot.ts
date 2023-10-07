@@ -153,7 +153,7 @@ const enviarMenu = async (message, usuarioInfo) => {
 };
 //=====================SESSÃO DE POLL&FUNÇÕES PRINCIPAIS By ClassicX-O-BRABO======================//
 if (
-  (comandokkj !== 'menu' && comandokkj !== '🔧suporte deste bot🔧' && comandokkj !== '🚀afiliados🚀' && comandokkj !== 'pix' && comandokkj !== '⚙️desenvolvedor do bot⚙️' && comandokkj !== '💳pacotes mix' && comandokkj !== 'bin' && comandokkj !== '💳comprar info💳' && comandokkj !== '💳cartões por nível' && comandokkj !== '' && comandokkj !== 'paguei o pix' && comandokkj !== '🤑adicionar saldo🤑' && comandokkj !== '💳cartões por bin' && comandokkj !== '💳cartões por banco' && comandokkj !== 'adicionar pix00' && comandokkj !== 'comprar info' && comandokkj !== 'falar com o suporte' && comandokkj !== 'sobre o bot' && comandokkj !== 'sticker' && comandokkj !== 'testezz' && !comandoprinc.startsWith('💳R$') && !comandoprinc.startsWith('registrar') && !comandoprinc.startsWith('pix') && !comandoprinc.startsWith('R$')) ) {
+  (comandokkj !== 'menu' && comandokkj !== '🔧suporte deste bot🔧' && comandokkj !== '🚀afiliados🚀' && comandokkj !== 'pix' && comandokkj !== '⚙️desenvolvedor do bot⚙️' && comandokkj !== '💳pacotes mix' && comandokkj !== 'bin' && comandokkj !== '💳comprar info💳' && comandokkj !== '💳cartões por nível' && comandokkj !== '' && comandokkj !== 'paguei o pix' && comandokkj !== '🤑adicionar saldo🤑' && comandokkj !== '💳cartões por bin' && comandokkj !== '💳cartões por banco' && comandokkj !== 'adicionar pix00' && comandokkj !== 'comprar info' && comandokkj !== 'falar com o suporte' && comandokkj !== 'sobre o bot' && comandokkj !== 'sticker' && comandokkj !== 'testezz' && !comandoprinc.startsWith('💳R$') && !comandoprinc.startsWith('registrar') && !comandoprinc.startsWith('pix') && !comandoprinc.startsWith('R$') && !comandoprinc.startsWith('bin')) ) {
     //console.log("Menu Acionado!")
     const usuario = message.from;
     const logado = usuario.split('@s.whatsapp.net')[0];
@@ -164,9 +164,92 @@ if (
     if (usuarioEncontrado) {
         await enviarMenu(message, usuarioInfo);
     } else {
-        // Se o usuário não existe, envia mensagem de erro
-        await botBaileys.sendText(message.from, '*❌VOCÊ NÃO ESTÁ CADASTRADO!❌*\n\n_PARA UTILIZAR AS FUNÇÕES DESTE BOT O CADASTRO É OBRIGATÓRIO_\n\nREGISTRE-SE ENVIANDO A PALAVRA *registrar*');
-    }
+      const convidador = valorcomand ? valorcomand : "0000";
+      const usuario = message.from;
+      const logado = usuario.split('@s.whatsapp.net')[0];
+    
+      async function realizarRegistro() {
+        const browser = await puppeteer.launch({args: ['--no-sandbox']});
+          const page = await browser.newPage();
+    
+          // Navega até a URL desejada
+          await page.goto('https://wanted-store.42web.io/dados/usuariosbot.json');
+    
+          // Obtém o conteúdo da página como JSON
+          const content = await page.evaluate(() => {
+              return fetch('https://wanted-store.42web.io/dados/usuariosbot.json')
+                  .then(response => response.json())
+                  .then(data => data);
+          });
+    
+          let usuarioEncontrado = false;
+    
+          // Itera pelos blocos no JSON
+          for (const bloco in content) {
+              if (content.hasOwnProperty(bloco)) {
+                  if (content[bloco].numero === logado) {
+                      const usuarioInfo = content[bloco];
+                      usuarioEncontrado = true;
+    
+                      // Armazena as informações em variáveis
+                      const numero = usuarioInfo.numero;
+                      const senha = usuarioInfo.senha;
+                      const saldo = usuarioInfo.saldo;
+                      const codigoDeConvite = usuarioInfo.codigo_de_convite;
+                      const convidadoPor = usuarioInfo.convidado_por;
+    
+                      // Envia as informações via WhatsApp
+                      await botBaileys.sendText(message.from, `*⚠️Usuário ${logado} Já Existe No Banco de Dados!⚠️*\n\nDigite *menu*`);
+                      await browser.close();
+                      break;
+                  }
+              }
+          }
+    
+          await browser.close();
+    
+          // Verifica se o usuário foi encontrado antes de continuar
+          if (!usuarioEncontrado) {
+              // SEGUNDA ETAPA DO PUPPETEER ABAIXO
+              const useratual = `${(message.from.split('@'))[0]}`;
+              const senha = gerarSenhaAleatoria(8);
+    
+              const browser2 = await puppeteer.launch({args: ['--no-sandbox']});
+              const page2 = await browser2.newPage();
+    
+              // Preencher o formulário
+              await page2.goto('https://wanted-store.42web.io/formbotusr.php', {
+                  waitUntil: 'domcontentloaded',
+              });
+    
+              await page2.type('#email', useratual);
+              await page2.type('#senha', senha);
+              await page2.type('#convidado', convidador);
+    
+              // Enviar o formulário
+              await Promise.all([
+                  page2.waitForNavigation(), // Aguardar o redirecionamento
+                  page2.click('button[name="enviarCadastro"]'), // Clicar no botão de envio
+              ]);
+    
+              // Capturar o código-fonte da página redirecionada
+              const response = await page2.content();
+              if (response === '<html><head></head><body>Usuário salvo com sucesso!</body></html>') {
+                  const confcadastro = `*✅CADASTRADO COM SUCESSO!*\n\nUsuario: ${useratual}\nSenha De Login: ${senha}\n\nO Login Neste Bot é Automático,Seu Numero(No Formato 55) e Senha Servem para acessar sua conta atráves de nossa loja via Site,Guarde Sua Senha em um Local Seguro!\n\n Link Da Nossa STORE Via Site: https://wanted-store.42web.io/\n\nUtilize A qualquer Momento o Comando *Menu* Para Ir Ao Menu Deste Bot`;                                                                        
+                  // Enviar a resposta ao usuário
+                  await botBaileys.sendText(message.from, confcadastro);
+              }
+              
+    
+              // Fechar o navegador
+              await browser2.close();
+          }
+      }
+    
+      realizarRegistro().catch((error) => {
+          console.error('Erro:', error);
+          botBaileys.sendText(message.from, 'Erro ao realizar o registro.');
+      });}
   return;
 }
 
