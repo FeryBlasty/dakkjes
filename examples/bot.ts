@@ -10,6 +10,9 @@ const fs = require('fs');
 const cheerio = require('cheerio'); // Certifique-se de que o pacote cheerio está instalado
 var axios = require("axios").default;
 
+//////////////////////////////////////
+const antispamkkj = 0;
+//////////////////////////////////////
 const botBaileys = new BaileysClass({});
 
 botBaileys.on('auth_failure', async (error) => console.log("ERRO BOT: ", error));
@@ -44,6 +47,7 @@ botBaileys.on('message', async (message) => {
     console.log(logcomando)
 //====================FUNÇÕES BY ClassicX-O-BRABO========================//
 //========================INICIO ANTI-SPAM==============================//
+if (antispamkkj !== 0) {
   const remetente = message.from;
   var options = {
     method: 'GET',
@@ -100,6 +104,7 @@ botBaileys.on('message', async (message) => {
     console.error(error);
     await botBaileys.sendText(message.from, 'Erro No Anti Spam! Consulte o Admin');
   }
+}
 //========================FIM DA FUNÇÃO ANTI-SPAM=========================//
 
 // Função para verificar se o usuário existe no banco de dados
