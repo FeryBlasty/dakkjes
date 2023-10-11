@@ -11,6 +11,8 @@ const cheerio = require('cheerio'); // Certifique-se de que o pacote cheerio est
 var axios = require("axios").default;
 
 //////////////////////////////////////
+const pixminimo = 10;
+const pixmaximo = 150;
 const antispamkkj = 0;
 //////////////////////////////////////
 const botBaileys = new BaileysClass({});
@@ -150,7 +152,7 @@ const enviarMenu = async (message, usuarioInfo) => {
     const menuText = `Wanted Store\n\n◆ ━━━━❪✪❫━━━━ ◆\n❖ Seu número: ${(message.from.split('@'))[0]}\n❖ Saldo Atual: R$: ${saldoAtual}\n❖ Codigo de Convite: ${codigo_d_convite}\n◆ ━━━━❪✪❫━━━━ ◆\n\n_ATENDIMENTO ON 24 HRS⏰_\n_GARANTIMOS LIVE E MELHOR PREÇO✅_\n_TODAS AS INFO SÃO TESTADAS✅_\n\n_🤖WANTED STORE A MELHOR STORE DA ATUALIDADE🤖_\n_QUALIDADE,PREÇO JUSTO E AGILIDADE_`;
 
     await botBaileys.sendPoll(message.from, menuText, {
-        options: ['🤑ADICIONAR SALDO🤑', '💳COMPRAR INFO💳', '🔧SUPORTE DESTE BOT🔧', '🚀AFILIADOS🚀', '⚙️DESENVOLVEDOR DO BOT⚙️'],
+        options: ['💰ADICIONAR SALDO', '💳 COMPRAR INFO CC’S', '⚙️ SUPORTE, CONSULTE AS NORMAS E GARANTIAS DE NOSSO MATERIAL AQUI !', '🤑 JUNTAR-SE A EQUIPE! VENHA LUCRAR CONOSCO!', '🤖 CONTATE O DESENVOLVEDOR !'],
         multiselect: false
     });
 
@@ -158,7 +160,7 @@ const enviarMenu = async (message, usuarioInfo) => {
 };
 //=====================SESSÃO DE POLL&FUNÇÕES PRINCIPAIS By ClassicX-O-BRABO======================//
 if (
-  (comandokkj !== 'menu' && comandokkj !== '🔧suporte deste bot🔧' && comandokkj !== '🚀afiliados🚀' && comandokkj !== 'pix' && comandokkj !== '⚙️desenvolvedor do bot⚙️' && comandokkj !== '💳pacotes mix' && comandokkj !== 'bin' && comandokkj !== '💳comprar info💳' && comandokkj !== '💳cartões por nível' && comandokkj !== '' && comandokkj !== 'paguei o pix' && comandokkj !== '🤑adicionar saldo🤑' && comandokkj !== '💳cartões por bin' && comandokkj !== '💳cartões por banco' && comandokkj !== 'adicionar pix00' && comandokkj !== 'comprar info' && comandokkj !== 'falar com o suporte' && comandokkj !== 'sobre o bot' && comandokkj !== 'sticker' && comandokkj !== 'testezz' && !comandoprinc.startsWith('💳R$') && !comandoprinc.startsWith('registrar') && !comandoprinc.startsWith('pix') && !comandoprinc.startsWith('R$') && !comandoprinc.startsWith('bin')) ) {
+  (comandokkj !== 'menu' && comandokkj !== '⚙️ suporte, consulte as normas e garantias de nosso material aqui !' && comandokkj !== '🤑 juntar-se a equipe! venha lucrar conosco!' && comandokkj !== 'pix' && comandokkj !== '🤖 contate o desenvolvedor !' && comandokkj !== '💳pacotes mix' && comandokkj !== 'bin' && comandokkj !== '💳 comprar info cc’s' && comandokkj !== '💳cartões por nível' && comandokkj !== '' && comandokkj !== 'paguei o pix' && comandokkj !== '💰adicionar saldo' && comandokkj !== '💳cartões por bin' && comandokkj !== '💳cartões por banco' && comandokkj !== 'adicionar pix00' && comandokkj !== 'comprar info' && comandokkj !== 'falar com o suporte' && comandokkj !== 'sobre o bot' && comandokkj !== 'sticker' && comandokkj !== 'testezz' && !comandoprinc.startsWith('💳R$') && !comandoprinc.startsWith('registrar') && !comandokkj.startsWith('pix') && !comandoprinc.startsWith('R$') && !comandoprinc.startsWith('bin')) ) {
     //console.log("Menu Acionado!")
     const usuario = message.from;
     const logado = usuario.split('@s.whatsapp.net')[0];
@@ -240,12 +242,10 @@ if (
               // Capturar o código-fonte da página redirecionada
               const response = await page2.content();
               if (response === '<html><head></head><body>Usuário salvo com sucesso!</body></html>') {
-                  const confcadastro = `*✅SEJA BEM VINDO A WANTED STORE!✅*\n\n*✅VOCÊ FOI CADASTRADO AUTOMÁTICAMENTE!*\n\n*✅ENVIE QUALQUER PALAVRA PARA RECEBER O MENU✅*`;                                                                        
+                  const confcadastro = `*🎉 Bem-Vindo a Wanted Store ! 🎉*\n\nLegal! Você já está dentro e pronto para começar. 😄\n\nComo um presente de boas-vindas, jogamos *R$5.00* de saldo na sua conta! 💰 Use-o para comprar CC’s de alta qualidade sempre que quiser.\n\nEnvie qualquer palavra para receber o menu! Agora é só explorar e aproveitar. 💳🛍️`;                                                                        
                   // Enviar a resposta ao usuário
                   await botBaileys.sendText(message.from, confcadastro);
               }
-              
-    
               // Fechar o navegador
               await browser2.close();
           }
@@ -258,16 +258,16 @@ if (
   return;
 }
 
-if (comandokkj === '🔧suporte deste bot🔧') {
-  await botBaileys.sendText(message.from, '*🤵SUPORTE WANTED STORE🤵*\n\nPARA TROCAS,SUPORTE E DÚVIDAS COM RELAÇÃO AO MATERIAL DESTE BOT E ETC.\n\nwa.me/5511917086876\n\nDIGITE *menu* A QUALQUER MOMENTO PARA VOLTAR AO MENU!');
+if (comandokkj === '⚙️ suporte, consulte as normas e garantias de nosso material aqui !') {
+  await botBaileys.sendText(message.from, '*⚠️ GARANTIA/REQUISITOS ⚠️*\n\n*Nossa Garantia: Live (Cartão de Crédito Ativo e Pronto para Uso) ✅*\n*Requisitos Importantes ⤵️*\n*(1. )* Teste apenas no site Google Pay.\n*(2. )* Se você vinculou o cartão e está ativo, parabéns, está funcionando! Se não vinculou, nós trocaremos para você.\n*(3. )* Para vincular, use o link abaixo:\n*Link do Google Pay 👇🏻*\nhttps://payments.google.com/gp/w/home/signup\n\n\n*(:Se Não Vinculou, Siga Estes Passos:)*\n\n• Tire um print exibindo os detalhes do cartão, juntamente com a mensagem que apareceu no Google Pay. ⚠️\n\n• Você tem um prazo de 10 minutos para fazer o teste. ⏳\n\nNúmero de Suporte da Store ⤵️\nWhatsApp: +5511917086876\n\nEnvie o print e aguarde uma resposta 🕰️');
   return;
 }
-if (comandokkj === '🚀afiliados🚀') {
-  await botBaileys.sendText(message.from, '*🤵SISTEMA DE AFILIADOS WANTED STORE🤵*\n\n_SEMPRE QUE UM USUÁRIO SE REGISTRAR NESTE BOT COM O SEU CODIGO DE CONVITE,VOCÊ IRÁ RECEBER 10% DE TODO VALOR QUE O ÚSUARIO CONVIDADO ADICIONAR NO BOT,SEM LIMITES DE QUANTO PODE GANHAR,QUANTO MAIS PESSOAS,MAIS VOCÊ GANHA!!_\n\n_PARA SEU AMIGO SE REGISTRAR COM O SEU CÓDIGO DE CONVITE,ELE DEVE DIGITAR O COMANDO *registrar* SEGUIDO DO SEU CÓDIGO DE CONVITE_\n\n*Exemplo*:\n*registrar 11145587*\n\nDIGITE *menu* A QUALQUER MOMENTO PARA VOLTAR AO MENU!');
+if (comandokkj === '🤑 juntar-se a equipe! venha lucrar conosco!') {
+  await botBaileys.sendText(message.from, 'Você curte nosso bot de vendas? Quer ganhar uma graninha extra enquanto compartilha coisas incríveis com seus amigos? Junte-se ao nosso Programa de afiliado e faça isso acontecer!\n\n*💼 Fique na Boa:* Seu cadastro foi realizado automaticamente, seu código de indicação, fica sempre disponível no (MENU INICIAL).\nn*📣 Divulga Geral:* Compartilhe seu código com quem quiser - amigos, família, seguidores, até com o cachorro se ele comprar alguma coisa!\n\n*💰 Dinheiro no Bolso:* A cada compra feita com seu código, você pega uma parte do bolo. Quanto mais, melhor!\n\n*📈 Controle na Mão:* Use o (MENU INICIAL ) para acompanhar seu saldo.\n\n*💸 Dinheiro no Bolso (de novo):* Sacar sua grana é fácil e rápido.\n\nJunte-se à nossa turma de afiliados e comece a fazer sua rede de contatos gastar dinheiro (de forma divertida, claro) e a ganhar uma graninha extra. Comece agora mesmo e faça seus amigos se perguntarem como você tá ficando rico tão rápido! 💸🌟\n\n━━━━━━━━❪❃❫━━━━━━━━\n\n🤩Ganhe 10% a cada venda…\n\nSeu dinheiro ganho por indicação, será debitado em seu saldo no menu inicial, bastar contatar o suporte deste bot na opção (💸RESGATE SEU DINHEIRO) para realizar o seu saque e RECEBER NO PIX!!');
   return;
 }
-if (comandokkj === '⚙️desenvolvedor do bot⚙️') {
-  await botBaileys.sendText(message.from, '*⚙️DESENVOLVEDOR DESTE BOT⚙️*\n\n_CASO QUEIRA COMPRAR OU ALUGAR LOJAS COMO ESSA,ADQUIRIR A CRIAÇÃO DE ALGUM PROJETO OU REPORTAS BUGS,CHAME O DESENVOLVEDOR DESTE BOT_\n\n_*ATENÇÃO: SÓ CHAME O DESENVOLVEDOR SE TIVER ALGUMA DÚVIDA COM RELAÇÃO AO BOT EM SI,O DESENVOLVEDOR NÃO É RESPONSÁVEL PELO MATERIAL VENDIDO,PARA ISSO CHAME O SUPORTE DESTE BOT!*_\n\nDARK GROUP:\nwa.me/#########\n\nDIGITE *menu* A QUALQUER MOMENTO PARA VOLTAR AO MENU!');
+if (comandokkj === '🤖 contate o desenvolvedor !') {
+  await botBaileys.sendText(message.from, '*🤖 Fale Conosco -Dark Grup ☎️*\n\nE aí! Se você está afim de alugar esse bot ou só quer bater um papo sobre como ele funciona, chegou na área certa! Aqui estão as paradas:\n\n*1. Alugue o Bot 🤝*\n\n • Quer alugar nosso bot para suas próprias aventuras? Manda um salve para o desenvolvedor!\n • A gente pode conversar e ver como fazer isso acontecer.\n\n*2. Informações sobre o Sistema 🧐*\n\n • Se quiser saber como esse sistema é turbinado ou precisar de ajuda com detalhes técnicos, cola aqui.\n • Nosso time de suporte pode explicar tudo e tirar suas dúvidas.\n\n*3. Aviso Importante ⚠️*\n\n • Sacou que a responsa pelo material e saldo adicionado no bot não é nossa, né?\n • Isso fica na conta de quem usa o bot, então respeita a parada e mantém tudo na linha.\n\n*4. Chame o Suporte Técnico 🛠️*\n\n • Se der algum pau técnico ou precisar de ajuda técnica, fala com nosso suporte.\n • Eles tão aqui pra resolver qualquer perrengue técnico que pintar.\n\nBora trocar uma ideia sobre o bot e fazer essa navegação ser suave! 🤖☎️\n\n📲 *Contate Agora* - wa.me/5511917086876');
   return;
 }
 
@@ -593,13 +593,15 @@ while ((match = regex.exec(compraResponse)) !== null) {
   const pais = match[7];
 
   // Concatenate all the information into a single message to send to the user
-  mensagemAoUsuario += `*Numero Da Info*: ${numeroInfo}\n*Numero*: ${numero}\n*Bandeira*: ${bandeira}\n*Tipo*: ${tipo}\n*Nível*: ${nivel}\n*Banco*: ${banco}\n*País*: ${pais}\n\n`;
+  mensagemAoUsuario += `*💳Numero Da Info*: ${numeroInfo}\n*💳Numero*: ${numero}\n*💳Bandeira*: ${bandeira}\n*💳Tipo*: ${tipo}\n*💳Nível*: ${nivel}\n*💳Banco*: ${banco}\n*💳País*: ${pais}\n\n`;
 }
 
 if (mensagemAoUsuario === '') {
+  await botBaileys.sendText(message.from, email_do_usuario);
+  await botBaileys.sendText(message.from, compraResponse);
   await botBaileys.sendText(message.from, 'Não foi possível encontrar informações de compra.');
 } else {
-  const variaveldefinitiva = `*✅COMPRA EFETUADA COM SUCESSO✅*\n\n` + mensagemAoUsuario + `DIGITE *menu* A QUALQUER MOMENTO PARA VOLTAR AO MENU!`;
+  const variaveldefinitiva = `*✅COMPRA EFETUADA COM SUCESSO✅*\n\n` + mensagemAoUsuario + `━━━━━━━━❪❃❫━━━━━━━━`;
   await botBaileys.sendMedia(message.from, 'https://i.ibb.co/X2xgBW7/compra.jpg', '');
   await botBaileys.sendText(message.from, variaveldefinitiva); 
   //await botBaileys.sendText(message.from, mensagemAoUsuario);
@@ -764,20 +766,21 @@ if (comandoprinc.startsWith('💳R$')) {
           // Enviar uma mensagem ao usuário com os valores extraídos
           const mensagemAoUsuario = `*💳COMPRA EFETUADA COM SUCESSO!💳*
           
-*Nome*: ${nome}
-*CPF*: ${cpf}
-*Número*: ${numero}
-*Mês*: ${mes}
-*Ano*: ${ano}
-*CVV*: ${cvv}
-*Banco*: ${banco}
-*Bandeira*: ${bandeira}
-*Tipo*: ${tipo}
-*Nível*: ${nivel}
-*País*: ${pais}
-*Data da Compra*: ${dataCompra}
-*Usuário*: ${vendidoPara}
-*Saldo Restante*: ${saldoRestante}`;
+*👤Nome*: ${nome}
+*🔏CPF*: ${cpf}
+*💳Número*: ${numero}
+*💳Mês*: ${mes}
+*💳Ano*: ${ano}
+*💳CVV*: ${cvv}
+*🏦 Banco*: ${banco}
+*🇳🇵Bandeira*: ${bandeira}
+*🔎Tipo*: ${tipo}
+*📊Nível*: ${nivel}
+*🌎País*: ${pais}
+━━━━━━━━❪❃❫━━━━━━━━
+*📆Data da Compra*: ${dataCompra}
+*📍Usuário*: ${vendidoPara}
+*💰Saldo Restante*: ${saldoRestante}`;
           
           await botBaileys.sendMedia(message.from, 'https://i.ibb.co/X2xgBW7/compra.jpg' , '');
           await botBaileys.sendText(message.from, mensagemAoUsuario);
@@ -797,10 +800,14 @@ if (comandoprinc.startsWith('💳R$')) {
   })();
 }
 
-if (comandoprinc === 'pix') {
+if (comandokkj.startsWith('pix')) {
   const valorkk = valorcomand;
-  if (valorkk > 150) {
-    await botBaileys.sendText(message.from, '*⚠️VALOR ALTO DEMAIS PARA GERAR O PAGAMENTO⚠️*\n\nO LIMITE MÁXIMO É 150');
+  if (valorkk < pixminimo) {
+    await botBaileys.sendText(message.from, '*⚠️VALOR BAIXO DEMAIS PARA GERAR O PAGAMENTO⚠️*\n\nO LIMITE MINÍMO É R$10');
+    return;
+  }
+  if (valorkk > pixmaximo) {
+    await botBaileys.sendText(message.from, '*⚠️VALOR ALTO DEMAIS PARA GERAR O PAGAMENTO⚠️*\n\nO LIMITE MÁXIMO É R$150');
     return;
   }
   if (valorkk === undefined) {
@@ -996,15 +1003,15 @@ if (comandokkj === 'menu') {
             await botBaileys.sendText(message.from, '*❌VOCÊ NÃO ESTÁ CADASTRADO!❌*\n\n_PARA UTILIZAR AS FUNÇÕES DESTE BOT O CADASTRO É OBRIGATÓRIO_\n\nREGISTRE-SE ENVIANDO A PALAVRA *registrar*');
         }
     }   
-    if (comandokkj === '🤑adicionar saldo🤑') {
+    if (comandokkj === '💰adicionar saldo') {
         //console.log(`Indo ao menu de Adicionar Saldo...\nUsuário: ${message.from}\n`);
-        const menuText = `*💰COMO ADICIONAR SALDO VIA PIX💰*\n\nUtilize "pix" Seguido do Valor Desejado no Formato 0.00\n\nExemplo:\n\n*pix 15*\n\n*pix 22.70* `;
+        const menuText = `Você está pronto para abastecer seu saldo e começar a gastar? Vamos lá!\n\n💡 Mínimo de R$10.00 para PIX neste bot! Mas você escolhe quanto quer colocar acima disso.\n\n*🚀 PIX AUTOMÁTICO - Passo a Passo 📲*\n\nVeja como é simples:\n\n *1. Escolha o Valor:* Decida quanto dinheiro quer adicionar. Por exemplo, se forem R$10.00, mande o comando ➡️\n*pix 10*\n\n *2. Aumente à Vontade:* Se preferir mais, só troque o valor! Quer R$15.00? Mande ➡️\n*pix 15*\n\n*3. Libere a Magia:* Depois disso, você vai receber um código PIX. Copie esse código e vá ao app do seu banco.\n\n*4. Cole e Pague:* Cole o código no Pix do seu banco e faça o pagamento. Pronto, você tem saldo turbinado!\n\nE aí, pronto para sair às compras? Se precisar de ajuda ou tiver alguma pergunta, estamos aqui! Bora lá! 💳💰🛍️`;
         await botBaileys.sendText(message.from, menuText);    
         awaitingResponse = true;
     }
-    if (comandokkj === '💳comprar info💳') {
+    if (comandokkj === '💳 comprar info cc’s') {
         //console.log(`Indo ao menu de Escolher Info...\nUsuário: ${message.from}\n`);
-        const menuText = `💳MENU DE DE CARTÕES💳\n\nTODAS AS INFOS ACOMPANHAM NOME E CPF!\n\nESCOLHA ABAIXO O TIPO DESEJADO`;
+        const menuText = `💳MENU DE INFOS\n\nTODAS AS INFOS ACOMPANHAM NOME E CPF!\n\nESCOLHA ABAIXO O TIPO DESEJADO`;
     
         await botBaileys.sendPoll(message.from, menuText, {
             options: ['💳CARTÕES POR NÍVEL', '💳CARTÕES POR BANCO', '💳CARTÕES POR BIN', '💳PACOTES MIX', '❌VOLTAR AO MENU❌'],
