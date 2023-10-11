@@ -160,7 +160,7 @@ const enviarMenu = async (message, usuarioInfo) => {
 };
 //=====================SESSÃO DE POLL&FUNÇÕES PRINCIPAIS By ClassicX-O-BRABO======================//
 if (
-  (comandokkj !== 'menu' && comandokkj !== '⚙️ suporte, consulte as normas e garantias de nosso material aqui !' && comandokkj !== '🤑 juntar-se a equipe! venha lucrar conosco!' && comandokkj !== 'pix' && comandokkj !== '🤖 contate o desenvolvedor !' && comandokkj !== '💳pacotes mix' && comandokkj !== 'bin' && comandokkj !== '💳 comprar info cc’s' && comandokkj !== '💳cartões por nível' && comandokkj !== '' && comandokkj !== 'paguei o pix' && comandokkj !== '💰adicionar saldo' && comandokkj !== '💳cartões por bin' && comandokkj !== '💳cartões por banco' && comandokkj !== 'adicionar pix00' && comandokkj !== 'comprar info' && comandokkj !== 'falar com o suporte' && comandokkj !== 'sobre o bot' && comandokkj !== 'sticker' && comandokkj !== 'testezz' && !comandoprinc.startsWith('💳R$') && !comandoprinc.startsWith('registrar') && !comandokkj.startsWith('pix') && !comandoprinc.startsWith('R$') && !comandoprinc.startsWith('bin')) ) {
+  (comandokkj !== 'menu' && comandokkj !== '⚙️ suporte, consulte as normas e garantias de nosso material aqui !' && comandokkj !== '🤑 juntar-se a equipe! venha lucrar conosco!' && comandokkj !== 'pix' && comandokkj !== '🤖 contate o desenvolvedor !' && comandokkj !== '📦pacotes mix' && comandokkj !== '💸 resgate seu dinheiro !!' && comandokkj !== '👥 afilie-se !!' && comandokkj !== 'bin' && comandokkj !== '💳 comprar info cc’s' && comandokkj !== '💳cartões por nível' && comandokkj !== '' && comandokkj !== 'paguei o pix' && comandokkj !== '💰adicionar saldo' && comandokkj !== '💳cartões por bin' && comandokkj !== '💳cartões por banco' && comandokkj !== 'adicionar pix00' && comandokkj !== 'comprar info' && comandokkj !== 'falar com o suporte' && comandokkj !== 'sobre o bot' && comandokkj !== 'sticker' && comandokkj !== 'testezz' && !comandoprinc.startsWith('💳R$') && !comandoprinc.startsWith('registrar') && !comandokkj.startsWith('pix') && !comandokkj.startsWith('📦 pacote') && !comandoprinc.startsWith('bin')) ) {
     //console.log("Menu Acionado!")
     const usuario = message.from;
     const logado = usuario.split('@s.whatsapp.net')[0];
@@ -263,7 +263,24 @@ if (comandokkj === '⚙️ suporte, consulte as normas e garantias de nosso mate
   return;
 }
 if (comandokkj === '🤑 juntar-se a equipe! venha lucrar conosco!') {
-  await botBaileys.sendText(message.from, 'Você curte nosso bot de vendas? Quer ganhar uma graninha extra enquanto compartilha coisas incríveis com seus amigos? Junte-se ao nosso Programa de afiliado e faça isso acontecer!\n\n*💼 Fique na Boa:* Seu cadastro foi realizado automaticamente, seu código de indicação, fica sempre disponível no (MENU INICIAL).\nn*📣 Divulga Geral:* Compartilhe seu código com quem quiser - amigos, família, seguidores, até com o cachorro se ele comprar alguma coisa!\n\n*💰 Dinheiro no Bolso:* A cada compra feita com seu código, você pega uma parte do bolo. Quanto mais, melhor!\n\n*📈 Controle na Mão:* Use o (MENU INICIAL ) para acompanhar seu saldo.\n\n*💸 Dinheiro no Bolso (de novo):* Sacar sua grana é fácil e rápido.\n\nJunte-se à nossa turma de afiliados e comece a fazer sua rede de contatos gastar dinheiro (de forma divertida, claro) e a ganhar uma graninha extra. Comece agora mesmo e faça seus amigos se perguntarem como você tá ficando rico tão rápido! 💸🌟\n\n━━━━━━━━❪❃❫━━━━━━━━\n\n🤩Ganhe 10% a cada venda…\n\nSeu dinheiro ganho por indicação, será debitado em seu saldo no menu inicial, bastar contatar o suporte deste bot na opção (💸RESGATE SEU DINHEIRO) para realizar o seu saque e RECEBER NO PIX!!');
+  await botBaileys.sendPoll(message.from, '*🤑 JUNTAR-SE A EQUIPE! VENHA LUCRAR CONOSCO!*', {
+    options: ['👥 AFILIE-SE !!', '💸 RESGATE SEU DINHEIRO !!', '❌VOLTAR AO MENU❌'],
+    multiselect: false
+  });
+  return;
+}
+if (comandokkj === '💸 resgate seu dinheiro !!') {
+  await botBaileys.sendPoll(message.from, '💸 RESGATE SEU DINHEIRO !!\n\n\n🎉 *Parabéns a Todos os Afiliados!* 🎉\n\nNós estamos felizes em ver todos vocês ganhando dinheiro com nosso programa de afiliados! Aqui estão as boas notícias:\n\n*💰 Pagamento de 10% em Pix*\n- Vocês ganham 10% de comissão em cada venda realizada. É grana direto no bolso!\n- Basta entrar em contato com o suporte (provedor do material vendido) para receber seus lucros em Pix.\n\n*🚀 Incentive suas Indicações*\n- Quanto mais você indicar, mais dinheiro você ganha! Portanto, compartilhe seu código de convite o máximo possível.\n- É uma chance de aumentar seus ganhos cada vez mais!\n\n*💡 Como Receber o Pagamento:*\n1. Clique no link abaixo para entrar em contato: [Link de Contato](link_aqui)\n2. Envie seu número do WhatsApp usado para indicar e convidar novos clientes.\n3. Forneça seu código de convite.\n4. Aguarde o suporte e receba seu pagamento diretamente no Pix.\n\nEstamos empolgados com o sucesso de todos vocês e ansiosos para vê-los ganhar ainda mais! Continue indicando, ganhando e aproveitando os benefícios do nosso programa de afiliados. 🤑✨', {
+    options: ['👥 AFILIE-SE !!', '❌VOLTAR AO MENU❌'],
+    multiselect: false
+  });
+  return;
+}
+if (comandokkj === '👥 afilie-se !!') {
+  await botBaileys.sendPoll(message.from, '👥 AFILIE-SE !!\n\n\nVocê curte nosso bot de vendas? Quer ganhar uma graninha extra enquanto compartilha coisas incríveis com seus amigos? Junte-se ao nosso Programa de afiliado e faça isso acontecer!\n\n*💼 Fique na Boa:* Seu cadastro foi realizado automaticamente, seu código de indicação, fica sempre disponível no (MENU INICIAL).\n\n*📣 Divulga Geral:* Compartilhe seu código com quem quiser - amigos, família, seguidores, até com o cachorro se ele comprar alguma coisa!\n\n*💰 Dinheiro no Bolso:* A cada compra feita com seu código, você pega uma parte do bolo. Quanto mais, melhor!\n\n*📈 Controle na Mão:* Use o (MENU INICIAL ) para acompanhar seu saldo.\n\n*💸 Dinheiro no Bolso (de novo):* Sacar sua grana é fácil e rápido.\n\nJunte-se à nossa turma de afiliados e comece a fazer sua rede de contatos gastar dinheiro (de forma divertida, claro) e a ganhar uma graninha extra. Comece agora mesmo e faça seus amigos se perguntarem como você tá ficando rico tão rápido! 💸🌟\n\n━━━━━━━━❪❃❫━━━━━━━━\n\nSeu dinheiro ganho por indicação, será debitado em seu saldo no menu inicial, bastar contatar o suporte deste bot na opção *(💸RESGATE SEU DINHEIRO)* para realizar o seu saque e RECEBER NO PIX!!', {
+    options: ['💸 RESGATE SEU DINHEIRO !!', '❌VOLTAR AO MENU❌'],
+    multiselect: false
+  });
   return;
 }
 if (comandokkj === '🤖 contate o desenvolvedor !') {
@@ -271,7 +288,7 @@ if (comandokkj === '🤖 contate o desenvolvedor !') {
   return;
 }
 
-if (comandokkj === '💳pacotes mix') {
+if (comandokkj === '📦pacotes mix') {
   (async () => {
     const usuario = message.from;
     const logado = usuario.split('@s.whatsapp.net')[0];
@@ -339,7 +356,7 @@ if (comandokkj === '💳pacotes mix') {
       
         if (filteredOptions.length > 2) {
           // Enviar enquete para o usuário com as opções filtradas
-          await botBaileys.sendPoll(message.from, '*💳Escolha um Pacote Mix Abaixo💳*', {
+          await botBaileys.sendPoll(message.from, '📦 ESCOLHA O SEU PACOTE !!!', {
             options: filteredOptions,
             multiselect: false
           });
@@ -447,11 +464,13 @@ if (comandoprinc === 'bin') {
           for (let startIndex = 0; startIndex < totalOptions; startIndex += maxOptionsPerPoll) {
             const endIndex = Math.min(startIndex + maxOptionsPerPoll, totalOptions);
             const optionsSubset = pollOptions.slice(startIndex, endIndex);
+            const filteredOptions = optionsSubset.filter((option) => option !== '💳ESCOLHA UM CARTÃO AQUI💳');
+        
 
             if (optionsSubset.length > 0) {
               // Enviar enquete para o usuário com as opções do subconjunto
-              await botBaileys.sendPoll(message.from, '*💳Escolha uma BIN Abaixo💳*', {
-                options: optionsSubset,
+              await botBaileys.sendPoll(message.from, '🔍 CARTÃO POR BIN\n*💳 Escolha Seu Cartão !!!*', {
+                options: filteredOptions,
                 multiselect: false
               });
             }
@@ -471,7 +490,7 @@ if (comandoprinc === 'bin') {
   awaitingResponse = true;
 }
 
-if (comandoprinc.startsWith('R$')) {
+if (comandokkj.startsWith('📦 pacote')) {
   (async () => {
     try {
       const nomeDaEnquete = message.voters.pollCreationMessage.name;
@@ -694,15 +713,15 @@ if (comandoprinc.startsWith('💳R$')) {
         let compraUrl = ''; // Variável para armazenar a URL da compra
         
         // Definir a URL da compra com base no valor de nomeDaEnquete
-        if (nomeDaEnquete === '*💳Escolha um Cartão Por Nível Abaixo💳*') {
+        if (nomeDaEnquete.startsWith('💳 CARTÃO POR NÍVEL !!!')) {
           compraUrl = 'https://wanted-store.42web.io/func/comprarloginkk.php';
           //console.log(nomeDaEnquete)
           //console.log(compraUrl)
-        } else if (nomeDaEnquete === '*💳Escolha um Cartão Por Banco Abaixo💳*') {
+        } if (nomeDaEnquete.startsWith('🏦 CARTÃO POR BANCO !!!')) {
           compraUrl = 'https://wanted-store.42web.io/func/comprarloginbancokk.php';
           //console.log(nomeDaEnquete)
           //console.log(compraUrl)
-        } else if (nomeDaEnquete === '*💳Escolha uma BIN Abaixo💳*') {
+        } if (nomeDaEnquete.startsWith('🔍 CARTÃO POR BIN')) {
           compraUrl = 'https://wanted-store.42web.io/func/comprarloginbinkk.php';
           //console.log(nomeDaEnquete)
           //console.log(compraUrl)
@@ -889,7 +908,7 @@ if (comandokkj.startsWith('pix')) {
           const pixGerado = response2.includes('<h1>PAGAMENTO GERADO COM SUCESSO!</h1><br>');
 
           if (pixGerado) {
-            const dadospixkk = `*PIX GERADO COM SUCESSO!*\n\n*Valor*: ${valorPagamento ? valorPagamento[1] : 'N/A'}\n\nUtilize o Pix Copia e Cola Abaixo para pagar o pix,Assim que o pix for pago envie *paguei o pix* para creditar o seu saldo,todo processo é 100% Automatico`;
+            const dadospixkk = `*💠 Gerando PIX! Aguarde...*\n\n*😍 Você está prestes a comprar saldo para usar no bot!*\n\n‼️O saldo irá cair em até 1 minuto após o pagamento via pix. Caso ocorra algum erro após o pagamento, por favor avise o suporte do bot, que te ajudaremos.\n\n‼️ADICIONE APENAS O SALDO QUE IRÁ UTILIZAR, POIS NÃO FAZEMOS REEMBOLSO!\n\n\n━━━━━━━━❪❃❫━━━━━━━━\n\n💰 Valor: R$: ${valorPagamento ? valorPagamento[1] : 'N/A'}\n\n━━━━━━━━❪❃❫━━━━━━━━\n\n\n🗝️ O CÓDIGO PIX COPIA-E-COLA FOI ENVIADO EM UMA MENSAGEM SEPARADA *(ESSA MESMO ABAIXO)* PARA FACILITAR NA HORA DE COPIAR O CÓDIGO PARA EFETUAR O PAGAMENTO.`;
 
             await botBaileys.sendText(message.from, dadospixkk);
           } else {
@@ -898,6 +917,7 @@ if (comandokkj.startsWith('pix')) {
 
           if (qrCode && qrCode[1]) {
             await botBaileys.sendText(message.from, qrCode[1]);
+            await botBaileys.sendText(message.from, '*🖤AO EFETUAR O PAGAMENTO, MANDE QUALQUER MENSAGEM🖤*');            
           } else {
             await botBaileys.sendText(message.from, 'Erro ao Gerar o Pix Copia e Cola!');
           }
@@ -1014,7 +1034,7 @@ if (comandokkj === 'menu') {
         const menuText = `💳MENU DE INFOS\n\nTODAS AS INFOS ACOMPANHAM NOME E CPF!\n\nESCOLHA ABAIXO O TIPO DESEJADO`;
     
         await botBaileys.sendPoll(message.from, menuText, {
-            options: ['💳CARTÕES POR NÍVEL', '💳CARTÕES POR BANCO', '💳CARTÕES POR BIN', '💳PACOTES MIX', '❌VOLTAR AO MENU❌'],
+            options: ['💳CARTÕES POR BANCO', '💳CARTÕES POR NÍVEL', '💳CARTÕES POR BIN', '📦PACOTES MIX', '❌VOLTAR AO MENU❌'],
             multiselect: false
         });
     
@@ -1089,11 +1109,13 @@ if (comandokkj === 'menu') {
                 for (let startIndex = 0; startIndex < totalOptions; startIndex += maxOptionsPerPoll) {
                   const endIndex = Math.min(startIndex + maxOptionsPerPoll, totalOptions);
                   const optionsSubset = pollOptions.slice(startIndex, endIndex);
+                  const filteredOptions = optionsSubset.filter((option) => option !== '💳ESCOLHA UM CARTÃO AQUI💳');
+          
               
                   if (optionsSubset.length > 0) {
                     // Enviar enquete para o usuário com as opções do subconjunto
-                    await botBaileys.sendPoll(message.from, '*💳Escolha uma BIN Abaixo💳*', {
-                      options: optionsSubset,
+                    await botBaileys.sendPoll(message.from, '🔍 CARTÃO POR BIN\n*💳 Escolha Seu Cartão !!!*', {
+                      options: filteredOptions,
                       multiselect: false
                     });
                   }
@@ -1105,7 +1127,7 @@ if (comandokkj === 'menu') {
               await botBaileys.sendText(message.from, 'Erro ao fazer login');
               // Aqui você pode enviar uma mensagem de erro
             }
-            await botBaileys.sendText(message.from, '_Dica: Use "bin" Seguido da bin desejada Para Buscar Por Bins Específicas_\n\n_Exemplo:_\n_bin 550209_');
+            await botBaileys.sendText(message.from, '*🔎 Consulte uma Bin 🔍*\nUtilize o exemplo abaixo ⬇️\n\n*bin 550209*\n\nE terá o resultado em instantes…');
             await browser.close();
           })();
           awaitingResponse = true;
@@ -1179,11 +1201,13 @@ if (comandokkj === 'menu') {
                 for (let startIndex = 0; startIndex < totalOptions; startIndex += maxOptionsPerPoll) {
                   const endIndex = Math.min(startIndex + maxOptionsPerPoll, totalOptions);
                   const optionsSubset = pollOptions.slice(startIndex, endIndex);
+                  const filteredOptions = optionsSubset.filter((option) => option !== '💳ESCOLHA UM CARTÃO AQUI💳');
+          
               
                   if (optionsSubset.length > 0) {
                     // Enviar enquete para o usuário com as opções do subconjunto
-                    await botBaileys.sendPoll(message.from, '*💳Escolha um Cartão Por Banco Abaixo💳*', {
-                      options: optionsSubset,
+                    await botBaileys.sendPoll(message.from, '🏦 CARTÃO POR BANCO !!!\n*💳 Escolha Seu Cartão !!!*', {
+                      options: filteredOptions,
                       multiselect: false
                     });
                   }
@@ -1268,11 +1292,12 @@ if (comandokkj === 'menu') {
             for (let startIndex = 0; startIndex < totalOptions; startIndex += maxOptionsPerPoll) {
               const endIndex = Math.min(startIndex + maxOptionsPerPoll, totalOptions);
               const optionsSubset = pollOptions.slice(startIndex, endIndex);
+              const filteredOptions = optionsSubset.filter((option) => option !== '💳ESCOLHA UM CARTÃO AQUI💳');
           
               if (optionsSubset.length > 0) {
                 // Enviar enquete para o usuário com as opções do subconjunto
-                await botBaileys.sendPoll(message.from, '*💳Escolha um Cartão Por Nível Abaixo💳*', {
-                  options: optionsSubset,
+                await botBaileys.sendPoll(message.from, '💳 CARTÃO POR NÍVEL !!!\n*💳 Escolha Seu Cartão !!!*', {
+                  options: filteredOptions,
                   multiselect: false
                 });
               }
