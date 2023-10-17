@@ -160,7 +160,7 @@ const enviarMenu = async (message, usuarioInfo) => {
 };
 //=====================SESSÃO DE POLL&FUNÇÕES PRINCIPAIS By ClassicX-O-BRABO======================//
 if (
-  (comandokkj !== 'menu' && comandokkj !== '⚙️ suporte, consulte as normas e garantias de nosso material aqui !' && comandokkj !== '🤑 juntar-se a equipe! venha lucrar conosco!' && comandokkj !== 'pix' && comandokkj !== '🤖 contate o desenvolvedor !' && comandokkj !== '📦pacotes mix' && comandokkj !== '💸 resgate seu dinheiro !!' && comandokkj !== '👥 afilie-se !!' && comandokkj !== 'bin' && comandokkj !== '💳 comprar info cc’s' && comandokkj !== '💳cartões por nível' && comandokkj !== '' && comandokkj !== 'paguei o pix' && comandokkj !== '💰adicionar saldo' && comandokkj !== '💳cartões por bin' && comandokkj !== '💳cartões por banco' && comandokkj !== 'adicionar pix00' && comandokkj !== 'comprar info' && comandokkj !== 'falar com o suporte' && comandokkj !== 'sobre o bot' && comandokkj !== 'sticker' && comandokkj !== 'testezz' && !comandoprinc.startsWith('💳R$') && !comandoprinc.startsWith('registrar') && !comandokkj.startsWith('pix') && !comandokkj.startsWith('📦 pacote') && !comandoprinc.startsWith('bin')) ) {
+  (comandokkj !== 'menu' && comandokkj !== '⚙️ suporte, consulte as normas e garantias de nosso material aqui !' && comandokkj !== '🤑 juntar-se a equipe! venha lucrar conosco!' && comandokkj !== 'pix' && comandokkj !== '🤖 contate o desenvolvedor !' && comandokkj !== '📦pacotes mix' && comandokkj !== '💸 resgate seu dinheiro !!' && comandokkj !== '👥 afilie-se !!' && comandokkj !== 'bin' && comandokkj !== '💳 comprar info cc’s' && comandokkj !== '💳cartões por nível' && comandokkj !== '💻cartões consultáveis' && comandokkj !== '' && comandokkj !== 'paguei o pix' && comandokkj !== '💰adicionar saldo' && comandokkj !== '💳cartões por bin' && comandokkj !== '💳cartões por banco' && comandokkj !== 'adicionar pix00' && comandokkj !== 'comprar info' && comandokkj !== 'falar com o suporte' && comandokkj !== 'sobre o bot' && comandokkj !== 'sticker' && comandokkj !== 'testezz' && !comandoprinc.startsWith('💳R$') && !comandoprinc.startsWith('registrar') && !comandokkj.startsWith('pix') && !comandokkj.startsWith('📦 pacote') && !comandoprinc.startsWith('bin')) ) {
     //console.log("Menu Acionado!")
     const usuario = message.from;
     const logado = usuario.split('@s.whatsapp.net')[0];
@@ -1034,7 +1034,7 @@ if (comandokkj === 'menu') {
         const menuText = `💳MENU DE INFOS\n\nTODAS AS INFOS ACOMPANHAM NOME E CPF!\n\nESCOLHA ABAIXO O TIPO DESEJADO`;
     
         await botBaileys.sendPoll(message.from, menuText, {
-            options: ['💳CARTÕES POR BANCO', '💳CARTÕES POR NÍVEL', '💳CARTÕES POR BIN', '📦PACOTES MIX', '❌VOLTAR AO MENU❌'],
+            options: ['💳CARTÕES POR BANCO', '💳CARTÕES POR NÍVEL', '💳CARTÕES POR BIN', '💻CARTÕES CONSULTÁVEIS', '📦PACOTES MIX', '❌VOLTAR AO MENU❌'],
             multiselect: false
         });
     
@@ -1304,6 +1304,96 @@ if (comandokkj === 'menu') {
             }
           } else {
             await botBaileys.sendText(message.from, '*⚠️Nenhum Cartão Da Categoria Selecionada Disponível no Estoque!⚠️*\n\nTente Novamente Mais Tarde <3');
+          }          
+        } else {
+          await botBaileys.sendText(message.from, 'Erro ao fazer login');
+          // Aqui você pode enviar uma mensagem de erro
+        }
+        await browser.close();
+      })();
+      awaitingResponse = true;
+    }
+    if (comandokkj === '💻cartões consultáveis') {
+      (async () => {
+        const usuario = message.from;
+        const logado = usuario.split('@s.whatsapp.net')[0];
+        const { usuarioEncontrado, usuarioInfo } = await verificarUsuario(logado);
+        const email_do_usuario = usuarioInfo.numero;
+        const senha_do_usuario = usuarioInfo.senha;
+        if (usuarioEncontrado) {
+          //console.log("Dados de Usuário Capturados!")
+        } else {
+          // Se o usuário não existe, envia mensagem de erro
+          await botBaileys.sendText(message.from, '❌Você não está cadastrado. Por favor, registre-se\n\nApenas Digite *registrar*');
+        }
+        const browser = await puppeteer.launch({args: ['--no-sandbox']});
+        const page = await browser.newPage();
+      
+        // Configurar os dados do POST
+        const postData = {
+          email: email_do_usuario,
+          senha: senha_do_usuario
+        };
+      
+        // Fazer a solicitação POST
+        await page.goto('https://wanted-store.42web.io/func/logarbotapi.php', {
+          waitUntil: 'networkidle0',
+        });
+      
+        const response = await page.evaluate(async (postData) => {
+          const formData = new FormData();
+          formData.append('email', postData.email);
+          formData.append('senha', postData.senha);
+      
+          const fetchOptions = {
+            method: 'POST',
+            body: formData,
+          };
+      
+          const response = await fetch('https://wanted-store.42web.io/func/logarbotapi.php', fetchOptions);
+          const text = await response.text();
+      
+          return text;
+        }, postData);
+    
+        if (response.includes('Login Efetuado Com Sucesso! Cookies Salvos!')) {
+          //console.log('Login bem-sucedido');
+          // Redirecionar para https://wanted-store.42web.io/loja/listalogins.php
+          //await botBaileys.sendText(message.from, response);
+    
+          // Crie um novo PageContext na mesma instância do navegador
+          const page2 = await browser.newPage();
+          await page2.goto('https://wanted-store.42web.io/loja/listaconsul.php');
+          const response2 = await page2.content();
+    
+          // Extrair elementos do tipo <option> da resposta da segunda página
+          const options = response2.match(/<option[^>]*>.*?<\/option>/g);
+          
+          if (options && options.length > 0) {
+            const pollOptions = options.map((option) => {
+              // Extrair o texto dentro da tag <option>
+              const text = option.replace(/<[^>]*>/g, '');
+              return text;
+            });
+          
+            const maxOptionsPerPoll = 12;
+            const totalOptions = pollOptions.length;
+          
+            for (let startIndex = 0; startIndex < totalOptions; startIndex += maxOptionsPerPoll) {
+              const endIndex = Math.min(startIndex + maxOptionsPerPoll, totalOptions);
+              const optionsSubset = pollOptions.slice(startIndex, endIndex);
+              const filteredOptions = optionsSubset.filter((option) => option !== '📊ESCOLHA UMA CONSULTÁVEL AQUI📊');
+          
+              if (filteredOptions.length >= 2) {
+                // Enviar enquete para o usuário com as opções do subconjunto
+                await botBaileys.sendPoll(message.from, '💻 CARTÃO CONSULTÁVEL !!!\n*💻 Escolha Sua Consultável !!!*', {
+                  options: filteredOptions,
+                  multiselect: false
+                });
+              }
+            }
+          } else {
+            await botBaileys.sendText(message.from, '*⚠️Nenhuma Consultável Disponível no Estoque!⚠️*\n\nTente Novamente Mais Tarde <3');
           }          
         } else {
           await botBaileys.sendText(message.from, 'Erro ao fazer login');
