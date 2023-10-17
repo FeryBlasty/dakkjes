@@ -152,7 +152,7 @@ const enviarMenu = async (message, usuarioInfo) => {
     const menuText = `Wanted Store\n\n◆ ━━━━❪✪❫━━━━ ◆\n❖ Seu número: ${(message.from.split('@'))[0]}\n❖ Saldo Atual: R$: ${saldoAtual}\n❖ Codigo de Convite: ${codigo_d_convite}\n◆ ━━━━❪✪❫━━━━ ◆\n\n_ATENDIMENTO ON 24 HRS⏰_\n_GARANTIMOS LIVE E MELHOR PREÇO✅_\n_TODAS AS INFO SÃO TESTADAS✅_\n\n_🤖WANTED STORE A MELHOR STORE DA ATUALIDADE🤖_\n_QUALIDADE,PREÇO JUSTO E AGILIDADE_`;
 
     await botBaileys.sendPoll(message.from, menuText, {
-        options: ['💰ADICIONAR SALDO', '💳 COMPRAR INFO CC’S', '⚙️ SUPORTE, CONSULTE AS NORMAS E GARANTIAS DE NOSSO MATERIAL AQUI !', '🤑 JUNTAR-SE A EQUIPE! VENHA LUCRAR CONOSCO!', '🤖 CONTATE O DESENVOLVEDOR !'],
+        options: ['💰ADICIONAR SALDO', '💳 COMPRAR INFO CC’S', '💻COMPRAR CONSULTÁVEIS','⚙️ SUPORTE, CONSULTE AS NORMAS E GARANTIAS DE NOSSO MATERIAL AQUI !', '🤑 JUNTAR-SE A EQUIPE! VENHA LUCRAR CONOSCO!', '🤖 CONTATE O DESENVOLVEDOR !'],
         multiselect: false
     });
 
@@ -160,7 +160,7 @@ const enviarMenu = async (message, usuarioInfo) => {
 };
 //=====================SESSÃO DE POLL&FUNÇÕES PRINCIPAIS By ClassicX-O-BRABO======================//
 if (
-  (comandokkj !== 'menu' && comandokkj !== '⚙️ suporte, consulte as normas e garantias de nosso material aqui !' && comandokkj !== '🤑 juntar-se a equipe! venha lucrar conosco!' && comandokkj !== 'pix' && comandokkj !== '🤖 contate o desenvolvedor !' && comandokkj !== '📦pacotes mix' && comandokkj !== '💸 resgate seu dinheiro !!' && comandokkj !== '👥 afilie-se !!' && comandokkj !== 'bin' && comandokkj !== '💳 comprar info cc’s' && comandokkj !== '💳cartões por nível' && comandokkj !== '💻cartões consultáveis' && comandokkj !== '' && comandokkj !== 'paguei o pix' && comandokkj !== '💰adicionar saldo' && comandokkj !== '💳cartões por bin' && comandokkj !== '💳cartões por banco' && comandokkj !== 'adicionar pix00' && comandokkj !== 'comprar info' && comandokkj !== 'falar com o suporte' && comandokkj !== 'sobre o bot' && comandokkj !== 'sticker' && comandokkj !== 'testezz' && !comandoprinc.startsWith('💳R$') && !comandoprinc.startsWith('registrar') && !comandokkj.startsWith('pix') && !comandokkj.startsWith('📦 pacote') && !comandoprinc.startsWith('bin')) ) {
+  (comandokkj !== 'menu' && comandokkj !== '⚙️ suporte, consulte as normas e garantias de nosso material aqui !' && comandokkj !== '🤑 juntar-se a equipe! venha lucrar conosco!' && comandokkj !== 'pix' && comandokkj !== '🤖 contate o desenvolvedor !' && comandokkj !== '📦pacotes mix' && comandokkj !== '💸 resgate seu dinheiro !!' && comandokkj !== '👥 afilie-se !!' && comandokkj !== 'bin' && comandokkj !== '💳 comprar info cc’s' && comandokkj !== '💳cartões por nível' && comandokkj !== '💻comprar consultáveis' && comandokkj !== '' && comandokkj !== 'paguei o pix' && comandokkj !== '💰adicionar saldo' && comandokkj !== '💳cartões por bin' && comandokkj !== '💳cartões por banco' && comandokkj !== 'adicionar pix00' && comandokkj !== 'comprar info' && comandokkj !== 'falar com o suporte' && comandokkj !== 'sobre o bot' && comandokkj !== 'sticker' && comandokkj !== 'testezz' && !comandoprinc.startsWith('💳R$') && !comandoprinc.startsWith('registrar') && !comandokkj.startsWith('pix') && !comandokkj.startsWith('📦 pacote') && !comandokkj.startsWith('📊r$') && !comandoprinc.startsWith('bin')) ) {
     //console.log("Menu Acionado!")
     const usuario = message.from;
     const logado = usuario.split('@s.whatsapp.net')[0];
@@ -636,7 +636,165 @@ if (mensagemAoUsuario === '') {
       }
       })();
       }
+      if (comandokkj.startsWith('📊r$')) {
+        (async () => {
+          try {
+            const nomeDaEnquete = message.voters.pollCreationMessage.name;
+            let itemselecionado = '';
 
+            // Concatenar todos os elementos do array parametros com espaço
+            for (let i = 0; i < parametros.length; i++) {
+              itemselecionado += parametros[i];
+              if (i < parametros.length - 1) {
+                itemselecionado += ' '; // Adicionar um espaço em branco após cada elemento, exceto o último
+              }
+            }
+            
+            // Remover o final indesejado "| Quantidade: 4"
+            itemselecionado = itemselecionado.replace(/\| Quantidade: \d+/g, '');
+            
+            // Remover emojis, incluindo o '💳' do início
+            itemselecionado = itemselecionado.replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F700}-\u{1F77F}\u{1F780}-\u{1F7FF}\u{1F800}-\u{1F8FF}\u{1F900}-\u{1F9FF}\u{1FA00}-\u{1FA6F}\u{1FA70}-\u{1FAFF}\u{1FB00}-\u{1FBFF}\u{1F000}-\u{1F02F}]/gu, '');
+            
+            // Remover espaços em branco no final do texto
+            itemselecionado = itemselecionado.trim();
+            
+            // Converter o texto para minúsculas
+            itemselecionado = itemselecionado.toLowerCase();
+            
+            // Remover o valor e a quantidade
+            itemselecionado = itemselecionado.replace(/\d+[kK]?\s*-\s*/g, '');
+            
+            // Remover o "r$" no início do texto
+            itemselecionado = itemselecionado.replace(/^r\$/, '');
+            
+            const usuario = message.from;
+            const logado = usuario.split('@s.whatsapp.net')[0];
+            const { usuarioEncontrado, usuarioInfo } = await verificarUsuario(logado);
+            const email_do_usuario = usuarioInfo.numero;
+            const senha_do_usuario = usuarioInfo.senha;
+      
+            if (usuarioEncontrado) {
+              //console.log("Dados de Usuário Capturados!");
+            } else {
+              // Se o usuário não existe, envia mensagem de erro
+              await botBaileys.sendText(message.from, '❌Você não está cadastrado. Por favor, registre-se\n\nApenas Digite *registrar*');
+              return; // Saia da função se o usuário não estiver cadastrado
+            }
+      
+            const browser = await puppeteer.launch({args: ['--no-sandbox']});
+            const page = await browser.newPage();
+      
+            // Configurar os dados do POST
+            const postData = {
+              email: email_do_usuario,
+              senha: senha_do_usuario
+            };
+      
+            // Fazer a solicitação POST para o login
+            await page.goto('https://wanted-store.42web.io/func/logarbotapi.php', {
+              waitUntil: 'networkidle0',
+            });
+      
+            const loginResponse = await page.evaluate(async (postData) => {
+              const formData = new FormData();
+              formData.append('email', postData.email);
+              formData.append('senha', postData.senha);
+      
+              const fetchOptions = {
+                method: 'POST',
+                body: formData,
+              };
+      
+              const response = await fetch('https://wanted-store.42web.io/func/logarbotapi.php', fetchOptions);
+              const text = await response.text();
+      
+              return text;
+            }, postData);
+      
+            if (loginResponse.includes('Login Efetuado Com Sucesso! Cookies Salvos!')) {
+              //console.log('Login bem-sucedido');
+            
+              // Agora, faça a requisição POST para https://wanted-store.42web.io/func/comprarloginkk.php
+              const compraData = {
+                usuario: email_do_usuario,
+                tipo: itemselecionado
+              };
+            
+              const compraResponse = await page.evaluate(async (compraData) => {
+                const formData = new FormData();
+                formData.append('usuario', compraData.usuario);
+                formData.append('tipo', compraData.tipo);
+            
+                const fetchOptions = {
+                  method: 'POST',
+                  body: formData,
+                };
+            
+                const response = await fetch('https://wanted-store.42web.io/func/comprarconsulkkj.php', fetchOptions);
+                const text = await response.text();
+            
+                return text;
+              }, compraData);
+            
+              // Feche o navegador após o uso
+              await browser.close();
+              //await botBaileys.sendText(message.from, itemselecionado);
+              //await botBaileys.sendText(message.from, email_do_usuario);
+              //await botBaileys.sendText(message.from, compraResponse);
+              // Use cheerio para analisar a resposta HTML
+              const $ = cheerio.load(compraResponse);
+              if (compraResponse.toLowerCase().includes('saldo insuficiente para realizar a compra')) {
+                await botBaileys.sendText(message.from, '*❌SALDO INSUFICIENTE PARA PROSSEGUIR COM A COMPRA DESTA CONSULTÁVEL!❌*');
+                return;
+              }
+              
+              if (compraResponse.toLowerCase().includes('este tipo de consultável não está disponível em estoque!')) {
+                await botBaileys.sendText(message.from, '*❌CONSULTÁVEL ESCOLHIDA NÃO DISPONÍVEL EM ESTOQUE!❌*');
+                return;
+              }      
+              
+              if (compraResponse.toLowerCase().includes('valor do produto inválido. entre em contato com o suporte!')) {
+                await botBaileys.sendText(message.from, '*❌Erro!❌*');
+                return;
+              }  
+              
+// Use expressões regulares para separar as informações em grupos
+const regex = /Consul Escolhida:<br>([\s\S]*?)<br>Tipo: (.*?)<br>Saldo Restante: (\d+\.\d+)/g;
+
+let mensagemAoUsuario = '';
+let match: RegExpExecArray | null;
+while ((match = regex.exec(compraResponse)) !== null) {
+  const consulEscolhida = match[1].replace(/<br\s*\/?>/g, '\n').replace(/[\r\n]+/g, '\n').trim(); // Substitua quebras de linha duplicadas
+  const tipo = match[2].trim();
+  const saldoRestante = match[3];
+
+  mensagemAoUsuario += `💳*Consul Escolhida*:\n${consulEscolhida}\n💳*Tipo*: ${tipo}\n💰*Saldo Restante*: ${saldoRestante}\n`;
+}
+
+      
+      if (mensagemAoUsuario === '') {
+        await botBaileys.sendText(message.from, email_do_usuario);
+        await botBaileys.sendText(message.from, compraResponse);
+        await botBaileys.sendText(message.from, 'Não foi possível encontrar informações de compra.');
+      } else {
+        const variaveldefinitiva = `*✅COMPRA EFETUADA COM SUCESSO✅*\n\n` + mensagemAoUsuario + `━━━━━━━━❪❃❫━━━━━━━━`;
+        await botBaileys.sendMedia(message.from, 'https://i.ibb.co/X2xgBW7/compra.jpg', '');
+        await botBaileys.sendText(message.from, variaveldefinitiva); 
+        //await botBaileys.sendText(message.from, mensagemAoUsuario);
+        return;
+      }
+            } else {
+              await botBaileys.sendText(message.from, 'Erro!');
+              //console.log('Erro ao efetuar o login');
+              // Feche o navegador após o uso
+              await browser.close();
+            }
+            } catch (error) {
+            console.error('Ocorreu um erro:', error);
+            }
+            })();
+            }
 if (comandoprinc.startsWith('💳R$')) {
   (async () => {
     try {
@@ -1034,7 +1192,7 @@ if (comandokkj === 'menu') {
         const menuText = `💳MENU DE INFOS\n\nTODAS AS INFOS ACOMPANHAM NOME E CPF!\n\nESCOLHA ABAIXO O TIPO DESEJADO`;
     
         await botBaileys.sendPoll(message.from, menuText, {
-            options: ['💳CARTÕES POR BANCO', '💳CARTÕES POR NÍVEL', '💳CARTÕES POR BIN', '💻CARTÕES CONSULTÁVEIS', '📦PACOTES MIX', '❌VOLTAR AO MENU❌'],
+            options: ['💳CARTÕES POR BANCO', '💳CARTÕES POR NÍVEL', '💳CARTÕES POR BIN', '📦PACOTES MIX', '❌VOLTAR AO MENU❌'],
             multiselect: false
         });
     
@@ -1313,7 +1471,7 @@ if (comandokkj === 'menu') {
       })();
       awaitingResponse = true;
     }
-    if (comandokkj === '💻cartões consultáveis') {
+    if (comandokkj === '💻comprar consultáveis') {
       (async () => {
         const usuario = message.from;
         const logado = usuario.split('@s.whatsapp.net')[0];
