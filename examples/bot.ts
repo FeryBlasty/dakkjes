@@ -19,7 +19,7 @@ const botBaileys = new BaileysClass({});
 
 botBaileys.on('auth_failure', async (error) => console.log("ERRO BOT: ", error));
 botBaileys.on('qr', (qr) => console.log("UTILIZE O QR CODE ABAIXO PARA SE CONECTAR AO BOT\n: ", qr));
-botBaileys.on('ready', async () => console.log('WANTED CC STORE BOT v1 - By ClassicX-O-BRABO\n\nBOT CONECTADO COM SUCESSO!'))
+botBaileys.on('ready', async () => console.log('RUIVA CC STORE BOT v1 - By ClassicX-O-BRABO\n\nBOT CONECTADO COM SUCESSO!'))
 
 let awaitingResponse = false;
 function gerarSenhaAleatoria(length) {
@@ -116,11 +116,11 @@ const verificarUsuario = async (logado) => {
     const page = await browser.newPage();
 
     // Navega até a URL desejada
-    await page.goto('https://wanted-store.42web.io/dados/usuariosbot.json');
+    await page.goto('https://ruiva-storekj.42web.io/dados/usuariosbot.json');
 
     // Obtém o conteúdo da página como JSON
     const content = await page.evaluate(() => {
-        return fetch('https://wanted-store.42web.io/dados/usuariosbot.json')
+        return fetch('https://ruiva-storekj.42web.io/dados/usuariosbot.json')
             .then(response => response.json())
             .then(data => data);
     });
@@ -149,7 +149,7 @@ const enviarMenu = async (message, usuarioInfo) => {
     const saldoAtual = usuarioInfo ? usuarioInfo.saldo : "Não Cadastrado";
     const codigo_d_convite = usuarioInfo ? usuarioInfo.codigo_de_convite : "Não Cadastrado"; 
     
-    const menuText = `Wanted Store\n\n◆ ━━━━❪✪❫━━━━ ◆\n❖ Seu número: ${(message.from.split('@'))[0]}\n❖ Saldo Atual: R$: ${saldoAtual}\n❖ Codigo de Convite: ${codigo_d_convite}\n◆ ━━━━❪✪❫━━━━ ◆\n\n_ATENDIMENTO ON 24 HRS⏰_\n_GARANTIMOS LIVE E MELHOR PREÇO✅_\n_TODAS AS INFO SÃO TESTADAS✅_\n\n_🤖WANTED STORE A MELHOR STORE DA ATUALIDADE🤖_\n_QUALIDADE,PREÇO JUSTO E AGILIDADE_`;
+    const menuText = `Ruiva Store\n\n◆ ━━━━❪✪❫━━━━ ◆\n❖ Seu número: ${(message.from.split('@'))[0]}\n❖ Saldo Atual: R$: ${saldoAtual}\n❖ Codigo de Convite: ${codigo_d_convite}\n◆ ━━━━❪✪❫━━━━ ◆\n\n⚠️ STORE • RUIVA SANTANA 💢\n\n✅ ATENDIMENTO & SUPORTE 24HRS\n\n🤖 VENDAS 100% AUTOMÁTICAS\n🤖 DÚVIDA? CHAMAR NO SUPORTE!!\n\n*NÚMERO SUPORTE:* wa.me/5549991370564`;
 
     await botBaileys.sendPoll(message.from, menuText, {
         options: ['💰ADICIONAR SALDO', '💳 COMPRAR INFO CC’S', '💻COMPRAR CONSULTÁVEIS','⚙️ SUPORTE, CONSULTE AS NORMAS E GARANTIAS DE NOSSO MATERIAL AQUI !', '🤑 JUNTAR-SE A EQUIPE! VENHA LUCRAR CONOSCO!', '🤖 CONTATE O DESENVOLVEDOR !'],
@@ -180,11 +180,11 @@ if (
           const page = await browser.newPage();
     
           // Navega até a URL desejada
-          await page.goto('https://wanted-store.42web.io/dados/usuariosbot.json');
+          await page.goto('https://ruiva-storekj.42web.io/dados/usuariosbot.json');
     
           // Obtém o conteúdo da página como JSON
           const content = await page.evaluate(() => {
-              return fetch('https://wanted-store.42web.io/dados/usuariosbot.json')
+              return fetch('https://ruiva-storekj.42web.io/dados/usuariosbot.json')
                   .then(response => response.json())
                   .then(data => data);
           });
@@ -225,7 +225,7 @@ if (
               const page2 = await browser2.newPage();
     
               // Preencher o formulário
-              await page2.goto('https://wanted-store.42web.io/formbotusr.php', {
+              await page2.goto('https://ruiva-storekj.42web.io/formbotusr.php', {
                   waitUntil: 'domcontentloaded',
               });
     
@@ -242,7 +242,7 @@ if (
               // Capturar o código-fonte da página redirecionada
               const response = await page2.content();
               if (response === '<html><head></head><body>Usuário salvo com sucesso!</body></html>') {
-                  const confcadastro = `*🎉 Bem-Vindo a Wanted Store ! 🎉*\n\nLegal! Você já está dentro e pronto para começar. 😄\n\nComo um presente de boas-vindas, jogamos *R$5.00* de saldo na sua conta! 💰 Use-o para comprar CC’s de alta qualidade sempre que quiser.\n\nEnvie qualquer palavra para receber o menu! Agora é só explorar e aproveitar. 💳🛍️`;                                                                        
+                  const confcadastro = `*🎉 Bem-Vindo a Ruiva Store ! 🎉*\n\nLegal! Você já está dentro e pronto para começar. 😄\n\nComo um presente de boas-vindas, jogamos *R$5.00* de saldo na sua conta! 💰 Use-o para comprar CC’s de alta qualidade sempre que quiser.\n\nEnvie qualquer palavra para receber o menu! Agora é só explorar e aproveitar. 💳🛍️`;                                                                        
                   // Enviar a resposta ao usuário
                   await botBaileys.sendText(message.from, confcadastro);
               }
@@ -259,7 +259,7 @@ if (
 }
 
 if (comandokkj === '⚙️ suporte, consulte as normas e garantias de nosso material aqui !') {
-  await botBaileys.sendText(message.from, '*⚠️ GARANTIA/REQUISITOS ⚠️*\n\n*Nossa Garantia: Live (Cartão de Crédito Ativo e Pronto para Uso) ✅*\n*Requisitos Importantes ⤵️*\n*(1. )* Teste apenas no site Google Pay.\n*(2. )* Se você vinculou o cartão e está ativo, parabéns, está funcionando! Se não vinculou, nós trocaremos para você.\n*(3. )* Para vincular, use o link abaixo:\n*Link do Google Pay 👇🏻*\nhttps://payments.google.com/gp/w/home/signup\n\n\n*(:Se Não Vinculou, Siga Estes Passos:)*\n\n• Tire um print exibindo os detalhes do cartão, juntamente com a mensagem que apareceu no Google Pay. ⚠️\n\n• Você tem um prazo de 10 minutos para fazer o teste. ⏳\n\nNúmero de Suporte da Store ⤵️\nWhatsApp: +5511917086876\n\nEnvie o print e aguarde uma resposta 🕰️');
+  await botBaileys.sendText(message.from, '*⚠️ GARANTIA/REQUISITOS ⚠️*\n\n*Nossa Garantia: Live (Cartão de Crédito Ativo e Pronto para Uso) ✅*\n*Requisitos Importantes ⤵️*\n*(1. )* Teste apenas no site Google Pay.\n*(2. )* Se você vinculou o cartão e está ativo, parabéns, está funcionando! Se não vinculou, nós trocaremos para você.\n*(3. )* Para vincular, use o link abaixo:\n*Link do Google Pay 👇🏻*\nhttps://payments.google.com/gp/w/home/signup\n\n\n*(:Se Não Vinculou, Siga Estes Passos:)*\n\n• Tire um print exibindo os detalhes do cartão, juntamente com a mensagem que apareceu no Google Pay. ⚠️\n\n• Você tem um prazo de 10 minutos para fazer o teste. ⏳\n\nNúmero de Suporte da Store ⤵️\nWhatsApp: wa.me/5549991370564\n\nEnvie o print e aguarde uma resposta 🕰️');
   return;
 }
 if (comandokkj === '🤑 juntar-se a equipe! venha lucrar conosco!') {
@@ -311,7 +311,7 @@ if (comandokkj === '📦pacotes mix') {
     };
   
     // Fazer a solicitação POST
-    await page.goto('https://wanted-store.42web.io/func/logarbotapi.php', {
+    await page.goto('https://ruiva-storekj.42web.io/func/logarbotapi.php', {
       waitUntil: 'networkidle0',
     });
   
@@ -325,7 +325,7 @@ if (comandokkj === '📦pacotes mix') {
         body: formData,
       };
   
-      const response = await fetch('https://wanted-store.42web.io/func/logarbotapi.php', fetchOptions);
+      const response = await fetch('https://ruiva-storekj.42web.io/func/logarbotapi.php', fetchOptions);
       const text = await response.text();
   
       return text;
@@ -333,12 +333,12 @@ if (comandokkj === '📦pacotes mix') {
 
     if (response.includes('Login Efetuado Com Sucesso! Cookies Salvos!')) {
       //console.log('Login bem-sucedido');
-      // Redirecionar para https://wanted-store.42web.io/loja/listalogins.php
+      // Redirecionar para https://ruiva-storekj.42web.io/loja/listalogins.php
       //await botBaileys.sendText(message.from, response);
 
       // Crie um novo PageContext na mesma instância do navegador
       const page2 = await browser.newPage();
-      await page2.goto('https://wanted-store.42web.io/loja/listaiptv.php');
+      await page2.goto('https://ruiva-storekj.42web.io/loja/listaiptv.php');
       const response2 = await page2.content();
 
       // Extrair elementos do tipo <option> da resposta da segunda página
@@ -405,7 +405,7 @@ if (comandoprinc === 'bin') {
       };
 
       // Fazer a solicitação POST para o primeiro login
-      await page.goto('https://wanted-store.42web.io/func/logarbotapi.php', {
+      await page.goto('https://ruiva-storekj.42web.io/func/logarbotapi.php', {
         waitUntil: 'networkidle0',
       });
 
@@ -419,7 +419,7 @@ if (comandoprinc === 'bin') {
           body: formData,
         };
 
-        const response = await fetch('https://wanted-store.42web.io/func/logarbotapi.php', fetchOptions);
+        const response = await fetch('https://ruiva-storekj.42web.io/func/logarbotapi.php', fetchOptions);
         const text = await response.text();
 
         return text;
@@ -439,7 +439,7 @@ if (comandoprinc === 'bin') {
             body: formData,
           };
 
-          const response = await fetch('https://wanted-store.42web.io/loja/listaloginsbin.php', fetchOptions);
+          const response = await fetch('https://ruiva-storekj.42web.io/loja/listaloginsbin.php', fetchOptions);
           const text = await response.text();
           return text;
         }, postDataBin);
@@ -536,7 +536,7 @@ if (comandokkj.startsWith('📦 pacote')) {
       };
 
       // Fazer a solicitação POST para o login
-      await page.goto('https://wanted-store.42web.io/func/logarbotapi.php', {
+      await page.goto('https://ruiva-storekj.42web.io/func/logarbotapi.php', {
         waitUntil: 'networkidle0',
       });
 
@@ -550,7 +550,7 @@ if (comandokkj.startsWith('📦 pacote')) {
           body: formData,
         };
 
-        const response = await fetch('https://wanted-store.42web.io/func/logarbotapi.php', fetchOptions);
+        const response = await fetch('https://ruiva-storekj.42web.io/func/logarbotapi.php', fetchOptions);
         const text = await response.text();
 
         return text;
@@ -559,7 +559,7 @@ if (comandokkj.startsWith('📦 pacote')) {
       if (loginResponse.includes('Login Efetuado Com Sucesso! Cookies Salvos!')) {
         //console.log('Login bem-sucedido');
       
-        // Agora, faça a requisição POST para https://wanted-store.42web.io/func/comprarloginkk.php
+        // Agora, faça a requisição POST para https://ruiva-storekj.42web.io/func/comprarloginkk.php
         const compraData = {
           usuario: email_do_usuario,
           tipo: itemselecionado
@@ -575,7 +575,7 @@ if (comandokkj.startsWith('📦 pacote')) {
             body: formData,
           };
       
-          const response = await fetch('https://wanted-store.42web.io/func/comprariptvkk.php', fetchOptions);
+          const response = await fetch('https://ruiva-storekj.42web.io/func/comprariptvkk.php', fetchOptions);
           const text = await response.text();
       
           return text;
@@ -621,7 +621,7 @@ if (mensagemAoUsuario === '') {
   await botBaileys.sendText(message.from, 'Não foi possível encontrar informações de compra.');
 } else {
   const variaveldefinitiva = `*✅COMPRA EFETUADA COM SUCESSO✅*\n\n` + mensagemAoUsuario + `━━━━━━━━❪❃❫━━━━━━━━`;
-  await botBaileys.sendMedia(message.from, 'https://i.ibb.co/X2xgBW7/compra.jpg', '');
+  await botBaileys.sendMedia(message.from, 'https://i.ibb.co/3MtbBJK/9e2a1ece-101d-4440-a321-8c612591a14b.jpg', '');
   await botBaileys.sendText(message.from, variaveldefinitiva); 
   //await botBaileys.sendText(message.from, mensagemAoUsuario);
 }
@@ -694,7 +694,7 @@ if (mensagemAoUsuario === '') {
             };
       
             // Fazer a solicitação POST para o login
-            await page.goto('https://wanted-store.42web.io/func/logarbotapi.php', {
+            await page.goto('https://ruiva-storekj.42web.io/func/logarbotapi.php', {
               waitUntil: 'networkidle0',
             });
       
@@ -708,7 +708,7 @@ if (mensagemAoUsuario === '') {
                 body: formData,
               };
       
-              const response = await fetch('https://wanted-store.42web.io/func/logarbotapi.php', fetchOptions);
+              const response = await fetch('https://ruiva-storekj.42web.io/func/logarbotapi.php', fetchOptions);
               const text = await response.text();
       
               return text;
@@ -717,7 +717,7 @@ if (mensagemAoUsuario === '') {
             if (loginResponse.includes('Login Efetuado Com Sucesso! Cookies Salvos!')) {
               //console.log('Login bem-sucedido');
             
-              // Agora, faça a requisição POST para https://wanted-store.42web.io/func/comprarloginkk.php
+              // Agora, faça a requisição POST para https://ruiva-storekj.42web.io/func/comprarloginkk.php
               const compraData = {
                 usuario: email_do_usuario,
                 tipo: itemselecionado
@@ -733,7 +733,7 @@ if (mensagemAoUsuario === '') {
                   body: formData,
                 };
             
-                const response = await fetch('https://wanted-store.42web.io/func/comprarconsulkkj.php', fetchOptions);
+                const response = await fetch('https://ruiva-storekj.42web.io/func/comprarconsulkkj.php', fetchOptions);
                 const text = await response.text();
             
                 return text;
@@ -752,8 +752,8 @@ if (mensagemAoUsuario === '') {
               }
               
               if (compraResponse.toLowerCase().includes('este tipo de consultável não está disponível em estoque!')) {
-                await botBaileys.sendText(message.from, itemselecionado);
-                await botBaileys.sendText(message.from, compraResponse);
+                //await botBaileys.sendText(message.from, itemselecionado);
+                //await botBaileys.sendText(message.from, compraResponse);
                 await botBaileys.sendText(message.from, '*❌CONSULTÁVEL ESCOLHIDA NÃO DISPONÍVEL EM ESTOQUE!❌*');
                 return;
               }      
@@ -783,7 +783,7 @@ while ((match = regex.exec(compraResponse)) !== null) {
         await botBaileys.sendText(message.from, 'Não foi possível encontrar informações de compra.');
       } else {
         const variaveldefinitiva = `*✅COMPRA EFETUADA COM SUCESSO✅*\n\n` + mensagemAoUsuario + `━━━━━━━━❪❃❫━━━━━━━━`;
-        await botBaileys.sendMedia(message.from, 'https://i.ibb.co/X2xgBW7/compra.jpg', '');
+        await botBaileys.sendMedia(message.from, 'https://i.ibb.co/3MtbBJK/9e2a1ece-101d-4440-a321-8c612591a14b.jpg', '');
         await botBaileys.sendText(message.from, variaveldefinitiva); 
         //await botBaileys.sendText(message.from, mensagemAoUsuario);
         return;
@@ -849,7 +849,7 @@ if (comandoprinc.startsWith('💳R$')) {
       };
 
       // Fazer a solicitação POST para o login
-      await page.goto('https://wanted-store.42web.io/func/logarbotapi.php', {
+      await page.goto('https://ruiva-storekj.42web.io/func/logarbotapi.php', {
         waitUntil: 'networkidle0',
       });
 
@@ -863,7 +863,7 @@ if (comandoprinc.startsWith('💳R$')) {
           body: formData,
         };
 
-        const response = await fetch('https://wanted-store.42web.io/func/logarbotapi.php', fetchOptions);
+        const response = await fetch('https://ruiva-storekj.42web.io/func/logarbotapi.php', fetchOptions);
         const text = await response.text();
 
         return text;
@@ -876,15 +876,15 @@ if (comandoprinc.startsWith('💳R$')) {
         
         // Definir a URL da compra com base no valor de nomeDaEnquete
         if (nomeDaEnquete.startsWith('💳 CARTÃO POR NÍVEL !!!')) {
-          compraUrl = 'https://wanted-store.42web.io/func/comprarloginkk.php';
+          compraUrl = 'https://ruiva-storekj.42web.io/func/comprarloginkk.php';
           //console.log(nomeDaEnquete)
           //console.log(compraUrl)
         } if (nomeDaEnquete.startsWith('🏦 CARTÃO POR BANCO !!!')) {
-          compraUrl = 'https://wanted-store.42web.io/func/comprarloginbancokk.php';
+          compraUrl = 'https://ruiva-storekj.42web.io/func/comprarloginbancokk.php';
           //console.log(nomeDaEnquete)
           //console.log(compraUrl)
         } if (nomeDaEnquete.startsWith('🔍 CARTÃO POR BIN')) {
-          compraUrl = 'https://wanted-store.42web.io/func/comprarloginbinkk.php';
+          compraUrl = 'https://ruiva-storekj.42web.io/func/comprarloginbinkk.php';
           //console.log(nomeDaEnquete)
           //console.log(compraUrl)
         }
@@ -963,7 +963,7 @@ if (comandoprinc.startsWith('💳R$')) {
 *📍Usuário*: ${vendidoPara}
 *💰Saldo Restante*: ${saldoRestante}`;
           
-          await botBaileys.sendMedia(message.from, 'https://i.ibb.co/X2xgBW7/compra.jpg' , '');
+          await botBaileys.sendMedia(message.from, 'https://i.ibb.co/3MtbBJK/9e2a1ece-101d-4440-a321-8c612591a14b.jpg' , '');
           await botBaileys.sendText(message.from, mensagemAoUsuario);
         } else {
           //console.log('URL de compra não definida');
@@ -983,6 +983,12 @@ if (comandoprinc.startsWith('💳R$')) {
 
 if (comandokkj.startsWith('pix')) {
   const valorkk = valorcomand;
+  const botoff = 1;
+if (botoff) {
+  await botBaileys.sendText(message.from, '*⚠️PIX AUTOMÁTICO DESATIVADO! UTILIZE O PIX MANUAL!⚠️*');
+  return;  
+}
+
   if (valorkk < pixminimo) {
     await botBaileys.sendText(message.from, '*⚠️VALOR BAIXO DEMAIS PARA GERAR O PAGAMENTO⚠️*\n\nO LIMITE MINÍMO É R$10');
     return;
@@ -1015,7 +1021,7 @@ if (comandokkj.startsWith('pix')) {
         };
 
         // Fazer a solicitação POST para fazer login
-        await page.goto('https://wanted-store.42web.io/func/logarbotapi.php', {
+        await page.goto('https://ruiva-storekj.42web.io/func/logarbotapi.php', {
           waitUntil: 'networkidle0',
         });
 
@@ -1029,7 +1035,7 @@ if (comandokkj.startsWith('pix')) {
             body: formData,
           };
 
-          const response = await fetch('https://wanted-store.42web.io/func/logarbotapi.php', fetchOptions);
+          const response = await fetch('https://ruiva-storekj.42web.io/func/logarbotapi.php', fetchOptions);
           const text = await response.text();
 
           return text;
@@ -1044,7 +1050,7 @@ if (comandokkj.startsWith('pix')) {
           };
 
           // Fazer a solicitação POST para gerar o Pix
-          await page.goto('https://wanted-store.42web.io/func/pixgen.php', {
+          await page.goto('https://ruiva-storekj.42web.io/func/pixgen.php', {
             waitUntil: 'networkidle0',
           });
 
@@ -1057,7 +1063,7 @@ if (comandokkj.startsWith('pix')) {
               body: formData2,
             };
 
-            const response2 = await fetch('https://wanted-store.42web.io/func/pixgen.php', fetchOptions2);
+            const response2 = await fetch('https://ruiva-storekj.42web.io/func/pixgen.php', fetchOptions2);
             const text2 = await response2.text();
 
             return text2;
@@ -1117,7 +1123,7 @@ if (comandokkj === 'paguei o pix') {
     };
   
     // Fazer a solicitação POST
-    await page.goto('https://wanted-store.42web.io/func/logarbotapi.php', {
+    await page.goto('https://ruiva-storekj.42web.io/func/logarbotapi.php', {
       waitUntil: 'networkidle0',
     });
   
@@ -1131,7 +1137,7 @@ if (comandokkj === 'paguei o pix') {
         body: formData,
       };
   
-      const response = await fetch('https://wanted-store.42web.io/func/logarbotapi.php', fetchOptions);
+      const response = await fetch('https://ruiva-storekj.42web.io/func/logarbotapi.php', fetchOptions);
       const text = await response.text();
   
       return text;
@@ -1139,12 +1145,12 @@ if (comandokkj === 'paguei o pix') {
 
     if (response.includes('Login Efetuado Com Sucesso! Cookies Salvos!')) {
       //console.log('Login bem-sucedido');
-      // Redirecionar para https://wanted-store.42web.io/loja/listalogins.php
+      // Redirecionar para https://ruiva-storekj.42web.io/loja/listalogins.php
       //await botBaileys.sendText(message.from, response);
 
       // Crie um novo PageContext na mesma instância do navegador
       const page2 = await browser.newPage();
-      await page2.goto('https://wanted-store.42web.io/loja/central.php');
+      await page2.goto('https://ruiva-storekj.42web.io/loja/central.php');
       const response2 = await page2.content();
       //await botBaileys.sendText(message.from, response2);
       await botBaileys.sendText(message.from, '*✅PAGAMENTOS ATUALIZADOS!✅*\n\nO STATUS DOS SEUS PAGAMENTOS PENDENTES FORAM ATUALIZADOS!,TODOS O PAGAMENTOS PENDENTES QUE CONSTAR COMO PAGO SERÁ CREDITADO AUTOMÁTICAMENTE\n\nSE VOCÊ PAGOU O PIX,E MESMO EXECUTANDO ESTE COMANDO NÃO CAIU O SALDO,AGUARDE ALGUNS SEGUNDOS E ATUALIZE NOVAMENTE OU CONTATE O SUPORTE!\n\nUTILIZE *menu* A QUALQUER MOMENTO PARA IR PARA O MENU');
@@ -1187,9 +1193,10 @@ if (comandokkj === 'menu') {
     }   
     if (comandokkj === '💰adicionar saldo') {
         //console.log(`Indo ao menu de Adicionar Saldo...\nUsuário: ${message.from}\n`);
-        const menuText = `Você está pronto para abastecer seu saldo e começar a gastar? Vamos lá!\n\n💡 Mínimo de R$10.00 para PIX neste bot! Mas você escolhe quanto quer colocar acima disso.\n\n*🚀 PIX AUTOMÁTICO - Passo a Passo 📲*\n\nVeja como é simples:\n\n *1. Escolha o Valor:* Decida quanto dinheiro quer adicionar. Por exemplo, se forem R$10.00, mande o comando ➡️\n*pix 10*\n\n *2. Aumente à Vontade:* Se preferir mais, só troque o valor! Quer R$15.00? Mande ➡️\n*pix 15*\n\n*3. Libere a Magia:* Depois disso, você vai receber um código PIX. Copie esse código e vá ao app do seu banco.\n\n*4. Cole e Pague:* Cole o código no Pix do seu banco e faça o pagamento. Pronto, você tem saldo turbinado!\n\nE aí, pronto para sair às compras? Se precisar de ajuda ou tiver alguma pergunta, estamos aqui! Bora lá! 💳💰🛍️`;
+        const menuText = `*💰ADICIONAR SALDO💰*\n\nSOMENTE PIX MANUAL DISPONÍVEL NO MOMENTO,PARA ADICIONAR SALDO,CHAME O SUPORTE DO BOT,O VALOR SERÁ CREDITADO DIRETAMENTE PELO SUPORTE\n\n*🧑NÚMERO SUPORTE:* wa.me/5549991370564`;
         await botBaileys.sendText(message.from, menuText);    
         awaitingResponse = true;
+        return;
     }
     if (comandokkj === '💳 comprar info cc’s') {
         //console.log(`Indo ao menu de Escolher Info...\nUsuário: ${message.from}\n`);
@@ -1225,7 +1232,7 @@ if (comandokkj === 'menu') {
             };
           
             // Fazer a solicitação POST
-            await page.goto('https://wanted-store.42web.io/func/logarbotapi.php', {
+            await page.goto('https://ruiva-storekj.42web.io/func/logarbotapi.php', {
               waitUntil: 'networkidle0',
             });
           
@@ -1239,7 +1246,7 @@ if (comandokkj === 'menu') {
                 body: formData,
               };
           
-              const response = await fetch('https://wanted-store.42web.io/func/logarbotapi.php', fetchOptions);
+              const response = await fetch('https://ruiva-storekj.42web.io/func/logarbotapi.php', fetchOptions);
               const text = await response.text();
           
               return text;
@@ -1247,12 +1254,12 @@ if (comandokkj === 'menu') {
         
             if (response.includes('Login Efetuado Com Sucesso! Cookies Salvos!')) {
               //console.log('Login bem-sucedido');
-              // Redirecionar para https://wanted-store.42web.io/loja/listalogins.php
+              // Redirecionar para https://ruiva-storekj.42web.io/loja/listalogins.php
               //await botBaileys.sendText(message.from, response);
         
               // Crie um novo PageContext na mesma instância do navegador
               const page2 = await browser.newPage();
-              await page2.goto('https://wanted-store.42web.io/loja/listaloginsbin.php');
+              await page2.goto('https://ruiva-storekj.42web.io/loja/listaloginsbin.php');
               const response2 = await page2.content();
         
               // Extrair elementos do tipo <option> da resposta da segunda página
@@ -1317,7 +1324,7 @@ if (comandokkj === 'menu') {
             };
           
             // Fazer a solicitação POST
-            await page.goto('https://wanted-store.42web.io/func/logarbotapi.php', {
+            await page.goto('https://ruiva-storekj.42web.io/func/logarbotapi.php', {
               waitUntil: 'networkidle0',
             });
           
@@ -1331,7 +1338,7 @@ if (comandokkj === 'menu') {
                 body: formData,
               };
           
-              const response = await fetch('https://wanted-store.42web.io/func/logarbotapi.php', fetchOptions);
+              const response = await fetch('https://ruiva-storekj.42web.io/func/logarbotapi.php', fetchOptions);
               const text = await response.text();
           
               return text;
@@ -1339,12 +1346,12 @@ if (comandokkj === 'menu') {
         
             if (response.includes('Login Efetuado Com Sucesso! Cookies Salvos!')) {
               //console.log('Login bem-sucedido');
-              // Redirecionar para https://wanted-store.42web.io/loja/listalogins.php
+              // Redirecionar para https://ruiva-storekj.42web.io/loja/listalogins.php
               //await botBaileys.sendText(message.from, response);
         
               // Crie um novo PageContext na mesma instância do navegador
               const page2 = await browser.newPage();
-              await page2.goto('https://wanted-store.42web.io/loja/listaloginsbanco.php');
+              await page2.goto('https://ruiva-storekj.42web.io/loja/listaloginsbanco.php');
               const response2 = await page2.content();
         
               // Extrair elementos do tipo <option> da resposta da segunda página
@@ -1408,7 +1415,7 @@ if (comandokkj === 'menu') {
         };
       
         // Fazer a solicitação POST
-        await page.goto('https://wanted-store.42web.io/func/logarbotapi.php', {
+        await page.goto('https://ruiva-storekj.42web.io/func/logarbotapi.php', {
           waitUntil: 'networkidle0',
         });
       
@@ -1422,7 +1429,7 @@ if (comandokkj === 'menu') {
             body: formData,
           };
       
-          const response = await fetch('https://wanted-store.42web.io/func/logarbotapi.php', fetchOptions);
+          const response = await fetch('https://ruiva-storekj.42web.io/func/logarbotapi.php', fetchOptions);
           const text = await response.text();
       
           return text;
@@ -1430,12 +1437,12 @@ if (comandokkj === 'menu') {
     
         if (response.includes('Login Efetuado Com Sucesso! Cookies Salvos!')) {
           //console.log('Login bem-sucedido');
-          // Redirecionar para https://wanted-store.42web.io/loja/listalogins.php
+          // Redirecionar para https://ruiva-storekj.42web.io/loja/listalogins.php
           //await botBaileys.sendText(message.from, response);
     
           // Crie um novo PageContext na mesma instância do navegador
           const page2 = await browser.newPage();
-          await page2.goto('https://wanted-store.42web.io/loja/listalogins.php');
+          await page2.goto('https://ruiva-storekj.42web.io/loja/listalogins.php');
           const response2 = await page2.content();
     
           // Extrair elementos do tipo <option> da resposta da segunda página
@@ -1498,7 +1505,7 @@ if (comandokkj === 'menu') {
         };
       
         // Fazer a solicitação POST
-        await page.goto('https://wanted-store.42web.io/func/logarbotapi.php', {
+        await page.goto('https://ruiva-storekj.42web.io/func/logarbotapi.php', {
           waitUntil: 'networkidle0',
         });
       
@@ -1512,7 +1519,7 @@ if (comandokkj === 'menu') {
             body: formData,
           };
       
-          const response = await fetch('https://wanted-store.42web.io/func/logarbotapi.php', fetchOptions);
+          const response = await fetch('https://ruiva-storekj.42web.io/func/logarbotapi.php', fetchOptions);
           const text = await response.text();
       
           return text;
@@ -1520,12 +1527,12 @@ if (comandokkj === 'menu') {
     
         if (response.includes('Login Efetuado Com Sucesso! Cookies Salvos!')) {
           //console.log('Login bem-sucedido');
-          // Redirecionar para https://wanted-store.42web.io/loja/listalogins.php
+          // Redirecionar para https://ruiva-storekj.42web.io/loja/listalogins.php
           //await botBaileys.sendText(message.from, response);
     
           // Crie um novo PageContext na mesma instância do navegador
           const page2 = await browser.newPage();
-          await page2.goto('https://wanted-store.42web.io/loja/listaconsul.php');
+          await page2.goto('https://ruiva-storekj.42web.io/loja/listaconsul.php');
           const response2 = await page2.content();
     
           // Extrair elementos do tipo <option> da resposta da segunda página
@@ -1593,11 +1600,11 @@ if (comandokkj === 'menu') {
                         const page = await browser.newPage();
                 
                         // Navega até a URL desejada
-                        await page.goto('https://wanted-store.42web.io/dados/usuariosbot.json');
+                        await page.goto('https://ruiva-storekj.42web.io/dados/usuariosbot.json');
                 
                         // Obtém o conteúdo da página como JSON
                         const content = await page.evaluate(() => {
-                            return fetch('https://wanted-store.42web.io/dados/usuariosbot.json')
+                            return fetch('https://ruiva-storekj.42web.io/dados/usuariosbot.json')
                                 .then(response => response.json())
                                 .then(data => data);
                         });
@@ -1633,7 +1640,7 @@ if (comandokkj === 'menu') {
                         if (!usuarioEncontrado) {
                             console.log(content);
                             // Usuário não encontrado no JSON
-                            await botBaileys.sendText(message.from, `BEM VINDO A WANTED STORE\n\n⚠️Usuário ${logado} Não Cadastrado!⚠️\n\nUtilize registrar Para Se Registrar No Bot!\n\nExemplo:\n\n*registrar*\n\n✅Nosso Bot é Integrado Também Com Nossa Store Via Site,Seu Numero(com o 55) e Senha Gerada Após o Registro Podem também ser Usados para login no nosso Site!`);
+                            await botBaileys.sendText(message.from, `BEM VINDO A RUIVA STORE\n\n⚠️Usuário ${logado} Não Cadastrado!⚠️\n\nUtilize registrar Para Se Registrar No Bot!\n\nExemplo:\n\n*registrar*\n\n✅Nosso Bot é Integrado Também Com Nossa Store Via Site,Seu Numero(com o 55) e Senha Gerada Após o Registro Podem também ser Usados para login no nosso Site!`);
                         }
                 
                         await browser.close();
@@ -1650,11 +1657,11 @@ if (comandokkj === 'menu') {
                                 const page = await browser.newPage();
                     
                                 // Navega até a URL desejada
-                                await page.goto('https://wanted-store.42web.io/dados/usuariosbot.json');
+                                await page.goto('https://ruiva-storekj.42web.io/dados/usuariosbot.json');
                     
                                 // Obtém o conteúdo da página como JSON
                                 const content = await page.evaluate(() => {
-                                    return fetch('https://wanted-store.42web.io/dados/usuariosbot.json')
+                                    return fetch('https://ruiva-storekj.42web.io/dados/usuariosbot.json')
                                         .then(response => response.json())
                                         .then(data => data);
                                 });
@@ -1694,7 +1701,7 @@ if (comandokkj === 'menu') {
                                     const page2 = await browser2.newPage();
                     
                                     // Preencher o formulário
-                                    await page2.goto('https://wanted-store.42web.io/formbotusr.php', {
+                                    await page2.goto('https://ruiva-storekj.42web.io/formbotusr.php', {
                                         waitUntil: 'domcontentloaded',
                                     });
                     
