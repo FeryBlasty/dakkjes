@@ -667,7 +667,9 @@ if (mensagemAoUsuario === '') {
             
             // Remover o "r$" no início do texto
             itemselecionado = itemselecionado.replace(/^r\$/, '');
-            
+
+            itemselecionado = itemselecionado.replace(/^ - /, '');
+                        
             const usuario = message.from;
             const logado = usuario.split('@s.whatsapp.net')[0];
             const { usuarioEncontrado, usuarioInfo } = await verificarUsuario(logado);
@@ -750,6 +752,8 @@ if (mensagemAoUsuario === '') {
               }
               
               if (compraResponse.toLowerCase().includes('este tipo de consultável não está disponível em estoque!')) {
+                await botBaileys.sendText(message.from, itemselecionado);
+                await botBaileys.sendText(message.from, compraResponse);
                 await botBaileys.sendText(message.from, '*❌CONSULTÁVEL ESCOLHIDA NÃO DISPONÍVEL EM ESTOQUE!❌*');
                 return;
               }      
